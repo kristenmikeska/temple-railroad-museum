@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // Tap a dropdown parent on mobile to expand it
     document.querySelectorAll('.has-dropdown > a').forEach(function (link) {
         link.addEventListener('click', function (e) {
-            if (window.innerWidth <= 960) {
+            if (window.innerWidth <= 1100) {
                 e.preventDefault();
                 var parent = this.closest('.has-dropdown');
                 // Close siblings
@@ -43,7 +43,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Reset on resize back to desktop
     window.addEventListener('resize', function () {
-        if (window.innerWidth > 960) {
+        if (window.innerWidth > 1100) {
             navLinks.classList.remove('open');
             toggle.innerHTML = '&#9776;';
             toggle.setAttribute('aria-expanded', 'false');

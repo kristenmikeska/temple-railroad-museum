@@ -20,12 +20,17 @@
     --sans:         'Helvetica Neue', Arial, sans-serif;
 }
 
-html { scroll-behavior: smooth; }
+html {
+    scroll-behavior: smooth;
+    overflow-x: hidden; /* prevent nav overflow from widening the page */
+}
 
 body {
     font-family: var(--sans);
     color: var(--text);
     background: var(--cream);
+    overflow-x: hidden;
+    max-width: 100vw;
 }
 
 a { color: inherit; text-decoration: none; }
@@ -66,6 +71,8 @@ nav {
     padding: 0 2.5rem;
     height: 68px;
     border-bottom: 3px solid var(--coral);
+    overflow: visible; /* dropdowns need to escape */
+    max-width: 100vw;
 }
 
 .nav-logo {
@@ -298,29 +305,36 @@ footer {
     flex-shrink: 0;
 }
 
-/* ── RESPONSIVE — TABLET (≤960px) ────────────────────── */
-@media (max-width: 960px) {
+/* Keep the Buy Tickets button from ever wrapping */
+nav > .btn {
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+/* ── RESPONSIVE — TABLET (≤1100px) ───────────────────── */
+@media (max-width: 1100px) {
 
     /* Nav collapses to hamburger */
     .nav-toggle { display: block; }
 
     nav { padding: 0 1.25rem; }
 
+    /* Hide nav links — revealed when .open class added by JS */
     .nav-links {
-        display: none;
+        display: none !important; /* override base display:flex */
         position: absolute;
         top: 71px; /* nav height + coral border */
         left: 0; right: 0;
-        background: var(--teal);
         flex-direction: column;
         align-items: stretch;
         gap: 0;
         padding: 0.5rem 0 1rem;
+        background: var(--teal);
         border-bottom: 3px solid var(--coral);
         box-shadow: 0 8px 32px rgba(0,0,0,0.35);
         z-index: 199;
     }
-    .nav-links.open { display: flex; }
+    .nav-links.open { display: flex !important; }
 
     .nav-links > li > a {
         height: auto;
@@ -343,7 +357,7 @@ footer {
     }
     .has-dropdown > a::after { float: right; margin-top: 0.1rem; }
 
-    /* Hide Buy Tickets in mobile nav */
+    /* Hide Buy Tickets in mobile nav (it's in the hamburger menu via nav links) */
     nav > .btn { display: none; }
 
     /* Footer */
@@ -381,6 +395,8 @@ footer {
 
     .foundation-hero .foundation-hero-badge { margin-top: 0; }
 }
+
+/* ── RESPONSIVE — MOBILE (≤600px) ────────────────────── */
 
 /* ── RESPONSIVE — MOBILE (≤600px) ────────────────────── */
 @media (max-width: 600px) {
