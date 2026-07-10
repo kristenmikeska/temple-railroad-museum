@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rent Our Space | Temple Railroad & Heritage Museum</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .spaces-section { padding: 5rem 2rem; background: var(--cream); }
+        .spaces-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.75rem; }
+        .space-card { background: #fff; overflow: hidden; border: 1px solid #e0dbd3; }
+        .space-img { height: 220px; background: var(--teal-mid); display: flex; align-items: center; justify-content: center; font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.2); overflow: hidden; }
+        .space-img img { width: 100%; height: 100%; object-fit: cover; }
+        .space-body { padding: 1.5rem; }
+        .space-body h3 { font-family: var(--serif); font-size: 1.15rem; color: var(--teal); margin-bottom: 0.5rem; }
+        .space-body .capacity { font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--coral); font-weight: 700; margin-bottom: 0.75rem; }
+        .space-body p { font-size: 0.85rem; color: #666; line-height: 1.65; margin-bottom: 1rem; }
+
+        .faq-section { padding: 5rem 2rem; background: var(--cream-alt); }
+        .faq-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 2.5rem; }
+        .faq-item { background: #fff; padding: 1.5rem; border-left: 3px solid var(--coral); }
+        .faq-item h4 { font-family: var(--serif); font-size: 1rem; color: var(--teal); margin-bottom: 0.5rem; }
+        .faq-item p { font-size: 0.85rem; color: #666; line-height: 1.65; }
+
+        .inquiry-section { padding: 5rem 2rem; background: var(--teal); }
+        .inquiry-inner { max-width: 680px; margin: 0 auto; text-align: center; }
+        .inquiry-inner h2 { font-family: var(--serif); color: #fff; font-size: 2rem; margin-bottom: 1rem; }
+        .inquiry-inner p { color: rgba(255,255,255,0.65); font-size: 0.97rem; line-height: 1.8; margin-bottom: 2rem; }
+        .contact-options { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; text-align: left; margin-top: 2rem; }
+        .contact-opt { background: rgba(255,255,255,0.06); padding: 1.5rem; border-left: 3px solid var(--coral); }
+        .contact-opt h4 { color: var(--coral); font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; font-weight: 700; margin-bottom: 0.4rem; }
+        .contact-opt p { color: rgba(255,255,255,0.7); font-size: 0.88rem; line-height: 1.5; }
+    </style>
+</head>
+<body>
+
+<nav>
+    <a href="index.html" class="nav-logo">
+        <img src="images/logo.png" alt="Temple Railroad & Heritage Museum">
+        <div class="nav-logo-text"><span class="name">Temple Railroad</span><span class="sub">& Heritage Museum</span></div>
+    </a>
+    <ul class="nav-links">
+        <li class="has-dropdown"><a href="visit.html">Visit</a><ul class="dropdown-menu"><li><a href="visit.html">Plan Your Visit</a></li><li><a href="visit.html#tour">3D Virtual Tour</a></li><li><a href="group-tours.html">Group Tours</a></li></ul></li>
+        <li class="has-dropdown"><a href="exhibits.html">Exhibits</a><ul class="dropdown-menu"><li><a href="exhibits.html">Current Exhibits</a></li><li><a href="exhibits.html#upcoming">Upcoming</a></li><li><a href="exhibits.html#permanent">Permanent Collection</a></li></ul></li>
+        <li><a href="about.html">Our Story</a></li>
+        <li><a href="events.html">Events & Programs</a></li>
+        <li class="has-dropdown"><a href="membership.html">Get Involved</a><ul class="dropdown-menu"><li><a href="membership.html">Become a Member</a></li><li><a href="index.html#donate">Donate</a></li><li><a href="events.html#volunteer">Volunteer</a></li><li><a href="index.html#newsletter">Newsletter</a></li></ul></li>
+        <li><a href="rentals.html">Rent Our Space</a></li>
+    </ul>
+    <a href="visit.html" class="btn btn-coral">Buy Tickets</a>
+</nav>
+
+<div class="breadcrumb"><div class="section-inner"><a href="index.html">Home</a><span>›</span><span>Rent Our Space</span></div></div>
+
+<div class="page-hero">
+    <div class="section-inner">
+        <p class="section-label">Facility Rentals</p>
+        <h1>Host Your Event at the Depot</h1>
+        <p class="sub">There is no more distinctive venue in Temple than the 1911 Santa Fe Depot. Host your wedding, corporate event, reunion, or private reception inside a living piece of Texas history.</p>
+    </div>
+</div>
+
+<section class="spaces-section">
+    <div class="section-inner">
+        <p class="section-label">Available Spaces</p>
+        <h2 class="section-heading" style="margin-bottom:2.5rem;">Our Rental Venues</h2>
+        <div class="spaces-grid">
+            <div class="space-card">
+                <div class="space-img"><img src="images/depot-exterior.jpg" alt="The Santa Fe Depot exterior"></div>
+                <div class="space-body">
+                    <h3>The Grand Hall</h3>
+                    <p class="capacity">Up to 200 guests · Full Buyout Available</p>
+                    <p>The main floor of the historic Santa Fe Depot — original architectural details, arched windows, and warm lighting make this an unforgettable backdrop for any occasion.</p>
+                    <a href="#inquiry" class="btn btn-coral">Check Availability</a>
+                </div>
+            </div>
+            <div class="space-card">
+                <div class="space-img" style="background:linear-gradient(135deg,#2a3a2a,#1a2a1a);">[ Gallery Photo ]</div>
+                <div class="space-body">
+                    <h3>Second Floor Galleries</h3>
+                    <p class="capacity">Up to 80 guests · Evening & Weekend</p>
+                    <p>Exclusive access to the exhibit galleries for cocktail receptions, corporate mixers, or intimate celebrations. Your guests explore history while you entertain.</p>
+                    <a href="#inquiry" class="btn btn-coral">Check Availability</a>
+                </div>
+            </div>
+            <div class="space-card">
+                <div class="space-img"><img src="images/grounds-caboose.jpg" alt="Museum grounds and caboose"></div>
+                <div class="space-body">
+                    <h3>Grounds & Caboose</h3>
+                    <p class="capacity">Outdoor · All Group Sizes</p>
+                    <p>The brick courtyard, Santa Fe Gardens, and historic rolling stock create a one-of-a-kind outdoor setting. The caboose is available as a featured rental element (included free for Superintendent members).</p>
+                    <a href="#inquiry" class="btn btn-coral">Check Availability</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="faq-section">
+    <div class="section-inner">
+        <p class="section-label">Before You Book</p>
+        <h2 class="section-heading">Rental FAQ</h2>
+        <div class="faq-grid">
+            <div class="faq-item">
+                <h4>What's included in the rental fee?</h4>
+                <p>All rentals include access to the space, on-site parking, tables and chairs (quantities vary by space), and coordination with our facility manager. Catering and A/V are arranged separately.</p>
+            </div>
+            <div class="faq-item">
+                <h4>Can we have catering?</h4>
+                <p>Yes — you are welcome to bring your own approved caterer or use one of our preferred vendor partners. A kitchen prep area is available for catering use.</p>
+            </div>
+            <div class="faq-item">
+                <h4>Are alcohol events permitted?</h4>
+                <p>Alcohol is permitted with a TABC-licensed bar service and the appropriate insurance. Our rental coordinator can walk you through the requirements.</p>
+            </div>
+            <div class="faq-item">
+                <h4>Is the depot accessible?</h4>
+                <p>Yes. The depot is fully ADA accessible with ramp entry, elevator access between floors, and accessible restrooms throughout.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="inquiry-section" id="inquiry">
+    <div class="inquiry-inner">
+        <p class="section-label on-dark" style="text-align:center;">Ready to Book?</p>
+        <h2>Let's Make It Happen</h2>
+        <p>Rental inquiries are handled through Eventective, our facility booking partner. Contact us directly and we'll get you set up with everything you need.</p>
+        <a href="#" class="btn btn-coral" style="font-size:0.9rem;padding:1rem 2.5rem;">Submit a Rental Inquiry</a>
+        <div class="contact-options">
+            <div class="contact-opt"><h4>Phone</h4><p>254-298-5172<br>Tuesday – Saturday, 10 AM – 4 PM</p></div>
+            <div class="contact-opt"><h4>Email</h4><p>rrhm@templetx.gov<br>We respond within 2 business days</p></div>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <div class="footer-grid">
+        <div class="footer-brand"><img src="images/logo.png" alt="Temple Railroad & Heritage Museum"><p>Housed in the historic 1911 Santa Fe Depot, the museum preserves the railroad heritage and community history of Temple, Texas and all of Central Texas.</p></div>
+        <div class="footer-col"><h4>Visit</h4><ul><li>315 W Ave B</li><li>Temple, TX 76501</li><li>254-298-5172</li><li><a href="mailto:rrhm@templetx.gov">rrhm@templetx.gov</a></li><li style="margin-top:0.5rem;">Tue – Sat: 10 AM – 4 PM</li></ul></div>
+        <div class="footer-col"><h4>Explore</h4><ul><li><a href="exhibits.html">Current Exhibits</a></li><li><a href="visit.html">Plan Your Visit</a></li><li><a href="visit.html#tour">3D Virtual Tour</a></li><li><a href="events.html">Events Calendar</a></li><li><a href="group-tours.html">School Groups</a></li><li><a href="about.html">Our Story</a></li></ul></div>
+        <div class="footer-col"><h4>Get Involved</h4><ul><li><a href="membership.html">Membership</a></li><li><a href="index.html#donate">Donate</a></li><li><a href="events.html#volunteer">Volunteer</a></li><li><a href="rentals.html">Rent Our Space</a></li><li><a href="index.html#newsletter">Newsletter</a></li><li><a href="https://facebook.com/templerrhm/" target="_blank">Facebook</a></li></ul></div>
+    </div>
+    <div class="footer-bottom"><span>© 2026 Temple Railroad & Heritage Museum. All rights reserved.</span><span>Temple, Texas &nbsp;·&nbsp; Est. 1881</span></div>
+</footer>
+</body>
+</html>

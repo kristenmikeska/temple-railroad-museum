@@ -1,0 +1,285 @@
+/* ============================================================
+   TEMPLE RAILROAD & HERITAGE MUSEUM — Shared Styles
+   Colors sourced from official museum logo
+   ============================================================ */
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+    --teal:         #1a3d3c;
+    --teal-mid:     #234f4e;
+    --teal-light:   #2d6663;
+    --coral:        #e05835;
+    --coral-light:  #e8744f;
+    --coral-dark:   #c04820;
+    --cream:        #f5f0e8;
+    --cream-alt:    #ece6da;
+    --text:         #1e1e1e;
+    --text-muted:   #555;
+    --serif:        Georgia, 'Times New Roman', serif;
+    --sans:         'Helvetica Neue', Arial, sans-serif;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+    font-family: var(--sans);
+    color: var(--text);
+    background: var(--cream);
+}
+
+a { color: inherit; text-decoration: none; }
+img { max-width: 100%; display: block; }
+
+/* ── BUTTONS ──────────────────────────────────────────── */
+.btn {
+    display: inline-block;
+    padding: 0.7rem 1.6rem;
+    border-radius: 2px;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.2s;
+    border: none;
+    font-family: var(--sans);
+}
+.btn-coral   { background: var(--coral); color: #fff; }
+.btn-coral:hover { background: var(--coral-light); }
+.btn-teal    { background: var(--teal); color: #fff; }
+.btn-teal:hover { background: var(--teal-mid); }
+.btn-outline-white { background: transparent; color: #fff; border: 2px solid #fff; }
+.btn-outline-white:hover { background: #fff; color: var(--teal); }
+.btn-outline-coral { background: transparent; color: var(--coral); border: 2px solid var(--coral); }
+.btn-outline-coral:hover { background: var(--coral); color: #fff; }
+
+/* ── NAVIGATION ───────────────────────────────────────── */
+nav {
+    position: sticky;
+    top: 0;
+    z-index: 200;
+    background: var(--teal);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 2.5rem;
+    height: 68px;
+    border-bottom: 3px solid var(--coral);
+}
+
+.nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    text-decoration: none;
+}
+.nav-logo img {
+    height: 46px;
+    width: 46px;
+    border-radius: 50%;
+}
+.nav-logo-text { display: flex; flex-direction: column; line-height: 1; }
+.nav-logo-text .name {
+    font-family: var(--serif);
+    font-size: 0.95rem;
+    font-weight: bold;
+    color: #fff;
+    letter-spacing: 0.04em;
+}
+.nav-logo-text .sub {
+    font-size: 0.58rem;
+    color: rgba(255,255,255,0.55);
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    margin-top: 0.15rem;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    list-style: none;
+}
+
+.nav-links > li {
+    position: relative;
+}
+
+.nav-links > li > a {
+    display: block;
+    padding: 0 0.9rem;
+    height: 68px;
+    line-height: 68px;
+    color: rgba(255,255,255,0.85);
+    font-size: 0.78rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-weight: 500;
+    white-space: nowrap;
+    transition: color 0.2s, background 0.2s;
+}
+.nav-links > li > a:hover,
+.nav-links > li:hover > a {
+    color: #fff;
+    background: rgba(255,255,255,0.08);
+}
+
+/* Dropdown */
+.nav-links .dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: var(--teal);
+    border-top: 3px solid var(--coral);
+    min-width: 200px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.25);
+    list-style: none;
+    padding: 0.5rem 0;
+}
+.nav-links li:hover .dropdown-menu {
+    display: block;
+}
+.dropdown-menu li a {
+    display: block;
+    padding: 0.6rem 1.25rem;
+    color: rgba(255,255,255,0.8);
+    font-size: 0.78rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    transition: all 0.15s;
+}
+.dropdown-menu li a:hover {
+    color: #fff;
+    background: rgba(255,255,255,0.08);
+    padding-left: 1.5rem;
+}
+.has-dropdown > a::after {
+    content: ' ▾';
+    font-size: 0.65rem;
+    opacity: 0.6;
+}
+
+/* ── FOOTER ───────────────────────────────────────────── */
+footer {
+    background: #111f1f;
+    color: #fff;
+    padding: 3.5rem 2rem 1.5rem;
+    border-top: 3px solid var(--coral);
+}
+.footer-grid {
+    max-width: 1100px;
+    margin: 0 auto 2.5rem;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 2.5rem;
+}
+.footer-brand { display: flex; flex-direction: column; gap: 0.75rem; }
+.footer-brand img { height: 60px; width: 60px; border-radius: 50%; }
+.footer-brand p {
+    font-size: 0.83rem;
+    color: rgba(255,255,255,0.55);
+    line-height: 1.7;
+    max-width: 280px;
+}
+.footer-col h4 {
+    font-size: 0.65rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--coral);
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+.footer-col ul { list-style: none; }
+.footer-col ul li {
+    font-size: 0.83rem;
+    color: rgba(255,255,255,0.55);
+    margin-bottom: 0.5rem;
+    line-height: 1.5;
+}
+.footer-col ul li a { transition: color 0.2s; }
+.footer-col ul li a:hover { color: #fff; }
+.footer-bottom {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(255,255,255,0.08);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.72rem;
+    color: rgba(255,255,255,0.3);
+}
+
+/* ── SECTION UTILITIES ────────────────────────────────── */
+.section-inner { max-width: 1100px; margin: 0 auto; }
+.section-label {
+    font-size: 0.68rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--coral);
+    font-weight: 700;
+    margin-bottom: 0.7rem;
+}
+.section-label.on-dark { color: var(--coral); }
+.section-heading {
+    font-family: var(--serif);
+    font-size: clamp(1.7rem, 3vw, 2.6rem);
+    line-height: 1.2;
+    margin-bottom: 1.25rem;
+    color: var(--teal);
+}
+.section-heading.light { color: #fff; }
+.divider {
+    width: 52px;
+    height: 3px;
+    background: var(--coral);
+    margin-bottom: 2rem;
+}
+
+/* ── PAGE HERO (interior pages) ───────────────────────── */
+.page-hero {
+    background: var(--teal);
+    padding: 4rem 2rem 3.5rem;
+    border-bottom: 3px solid var(--coral);
+    position: relative;
+    overflow: hidden;
+}
+.page-hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: url('../images/hero-sunset.jpg') center/cover no-repeat;
+    opacity: 0.18;
+}
+.page-hero .section-inner { position: relative; z-index: 1; }
+.page-hero .section-label { color: var(--coral); }
+.page-hero h1 {
+    font-family: var(--serif);
+    font-size: clamp(2rem, 4vw, 3rem);
+    color: #fff;
+    line-height: 1.15;
+    max-width: 700px;
+}
+.page-hero .sub {
+    color: rgba(255,255,255,0.7);
+    font-size: 1rem;
+    margin-top: 0.75rem;
+    max-width: 600px;
+    line-height: 1.7;
+}
+
+/* ── BREADCRUMB ───────────────────────────────────────── */
+.breadcrumb {
+    background: var(--cream-alt);
+    padding: 0.6rem 2rem;
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    letter-spacing: 0.05em;
+    border-bottom: 1px solid rgba(0,0,0,0.06);
+}
+.breadcrumb .section-inner { display: flex; gap: 0.5rem; align-items: center; }
+.breadcrumb a { color: var(--coral); }
+.breadcrumb a:hover { text-decoration: underline; }
+.breadcrumb span { opacity: 0.4; }

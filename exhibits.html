@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exhibits | Temple Railroad & Heritage Museum</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .exhibits-main { padding: 5rem 2rem; background: var(--cream); }
+        .exhibit-filter {
+            display: flex;
+            gap: 0.75rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+        .filter-btn {
+            padding: 0.5rem 1.2rem;
+            border: 2px solid #ccc;
+            background: transparent;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            cursor: pointer;
+            border-radius: 2px;
+            font-family: var(--sans);
+            transition: all 0.2s;
+            color: #555;
+        }
+        .filter-btn.active, .filter-btn:hover {
+            border-color: var(--coral);
+            background: var(--coral);
+            color: #fff;
+        }
+        .exhibits-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.75rem;
+        }
+        .exhibit-card {
+            background: #fff;
+            border: 1px solid #e0dbd3;
+            overflow: hidden;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .exhibit-card:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(0,0,0,0.1); }
+        .exhibit-img {
+            height: 220px;
+            background: var(--teal-mid);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.68rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.25);
+            overflow: hidden;
+        }
+        .exhibit-img img { width: 100%; height: 100%; object-fit: cover; }
+        .exhibit-body { padding: 1.5rem; }
+        .exhibit-tag { font-size: 0.62rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--coral); font-weight: 700; margin-bottom: 0.5rem; }
+        .exhibit-title { font-family: var(--serif); font-size: 1.2rem; color: var(--teal); margin-bottom: 0.6rem; line-height: 1.3; }
+        .exhibit-desc { font-size: 0.85rem; color: #666; line-height: 1.65; margin-bottom: 1rem; }
+        .exhibit-dates { font-size: 0.78rem; color: #999; border-top: 1px solid #eee; padding-top: 0.75rem; }
+
+        .permanent-section { padding: 5rem 2rem; background: var(--teal); }
+        .perm-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; margin-top: 2.5rem; }
+        .perm-text p { font-size: 0.95rem; line-height: 1.85; color: rgba(255,255,255,0.7); margin-bottom: 1.2rem; }
+        .perm-photo img { width: 100%; height: 380px; object-fit: cover; }
+    </style>
+</head>
+<body>
+
+<nav>
+    <a href="index.html" class="nav-logo">
+        <img src="images/logo.png" alt="Temple Railroad & Heritage Museum">
+        <div class="nav-logo-text">
+            <span class="name">Temple Railroad</span>
+            <span class="sub">& Heritage Museum</span>
+        </div>
+    </a>
+    <ul class="nav-links">
+        <li class="has-dropdown"><a href="visit.html">Visit</a>
+            <ul class="dropdown-menu">
+                <li><a href="visit.html">Plan Your Visit</a></li>
+                <li><a href="visit.html#tour">3D Virtual Tour</a></li>
+                <li><a href="group-tours.html">Group Tours</a></li>
+            </ul>
+        </li>
+        <li class="has-dropdown"><a href="exhibits.html">Exhibits</a>
+            <ul class="dropdown-menu">
+                <li><a href="exhibits.html">Current Exhibits</a></li>
+                <li><a href="exhibits.html#upcoming">Upcoming</a></li>
+                <li><a href="exhibits.html#permanent">Permanent Collection</a></li>
+            </ul>
+        </li>
+        <li><a href="about.html">Our Story</a></li>
+        <li><a href="events.html">Events & Programs</a></li>
+        <li class="has-dropdown"><a href="membership.html">Get Involved</a>
+            <ul class="dropdown-menu">
+                <li><a href="membership.html">Become a Member</a></li>
+                <li><a href="index.html#donate">Donate</a></li>
+                <li><a href="events.html#volunteer">Volunteer</a></li>
+                <li><a href="index.html#newsletter">Newsletter</a></li>
+            </ul>
+        </li>
+        <li><a href="rentals.html">Rent Our Space</a></li>
+    </ul>
+    <a href="visit.html" class="btn btn-coral">Buy Tickets</a>
+</nav>
+
+<div class="breadcrumb">
+    <div class="section-inner">
+        <a href="index.html">Home</a><span>›</span><span>Exhibits</span>
+    </div>
+</div>
+
+<div class="page-hero">
+    <div class="section-inner">
+        <p class="section-label">What's On View</p>
+        <h1>Exhibits at the Depot</h1>
+        <p class="sub">From rotating special exhibitions to our permanent Santa Fe Railway collection, there's always something new to discover inside the historic 1911 depot.</p>
+    </div>
+</div>
+
+<section class="exhibits-main">
+    <div class="section-inner">
+        <div class="exhibit-filter">
+            <button class="filter-btn active">All Exhibits</button>
+            <button class="filter-btn">On View Now</button>
+            <button class="filter-btn">Upcoming</button>
+            <button class="filter-btn">Permanent</button>
+        </div>
+        <div class="exhibits-grid">
+            <div class="exhibit-card">
+                <div class="exhibit-img"><img src="images/vaquero-exhibit-gallery.jpg" alt="Vaquero exhibit — saddles, photographs, and papel picado on display"></div>
+                <div class="exhibit-body">
+                    <p class="exhibit-tag">On View Now</p>
+                    <h3 class="exhibit-title">Vaquero: Genesis of the Texas Cowboy</h3>
+                    <p class="exhibit-desc">Photographs by Bill Wittliff showcase vaquero culture and its influence on American Western ranching traditions through documentary-style, bilingual imagery.</p>
+                    <p class="exhibit-dates">March 20 – July 10, 2026 &nbsp;·&nbsp; Second Floor Gallery</p>
+                </div>
+            </div>
+            <div class="exhibit-card">
+                <div class="exhibit-img" style="background:linear-gradient(135deg,#3a2a1a,#2a1a0a);">[ Exhibit Photo ]</div>
+                <div class="exhibit-body">
+                    <p class="exhibit-tag">On View Now</p>
+                    <h3 class="exhibit-title">Homespun History</h3>
+                    <p class="exhibit-desc">Historic quilts from the museum's permanent collection tell family stories through handmade textiles spanning generations of Central Texas craftsmanship.</p>
+                    <p class="exhibit-dates">On View Now &nbsp;·&nbsp; The Temple Room</p>
+                </div>
+            </div>
+            <div class="exhibit-card" id="upcoming">
+                <div class="exhibit-img" style="background:linear-gradient(135deg,#2a3a2a,#1a2a1a);">[ Exhibit Photo ]</div>
+                <div class="exhibit-body">
+                    <p class="exhibit-tag">Coming Soon</p>
+                    <h3 class="exhibit-title">Gadgets Galore!</h3>
+                    <p class="exhibit-desc">Explore how industrialization transformed the American home. Featuring gadgets both recognizable and wonderfully strange from the 19th century.</p>
+                    <p class="exhibit-dates">August 2 – 27, 2026</p>
+                </div>
+            </div>
+            <div class="exhibit-card">
+                <div class="exhibit-img" style="background:linear-gradient(135deg,#3a1a2a,#2a0a1a);">[ Exhibit Photo ]</div>
+                <div class="exhibit-body">
+                    <p class="exhibit-tag">Coming Fall 2026</p>
+                    <h3 class="exhibit-title">StitchPUNK</h3>
+                    <p class="exhibit-desc">Twenty-seven international artists use fabric-based media to explore punk subcultures, combining texture, stitching, and stuffing for artistic and social commentary.</p>
+                    <p class="exhibit-dates">October 9, 2026 – January 16, 2027</p>
+                </div>
+            </div>
+            <div class="exhibit-card" id="permanent">
+                <div class="exhibit-img"><img src="images/grounds-caboose.jpg" alt="Rolling stock on museum grounds"></div>
+                <div class="exhibit-body">
+                    <p class="exhibit-tag">Permanent Collection</p>
+                    <h3 class="exhibit-title">Railroad Heritage of Central Texas</h3>
+                    <p class="exhibit-desc">One of the nation's most significant Santa Fe Railway archives — artifacts, rolling stock, and records tracing how the railroad built Temple and all of Central Texas.</p>
+                    <p class="exhibit-dates">Always On View &nbsp;·&nbsp; Grounds & Second Floor</p>
+                </div>
+            </div>
+            <div class="exhibit-card">
+                <div class="exhibit-img" style="background:linear-gradient(135deg,#1a2a3a,#0a1a2a);">[ Exhibit Photo ]</div>
+                <div class="exhibit-body">
+                    <p class="exhibit-tag">Permanent Collection</p>
+                    <h3 class="exhibit-title">Archives & Research Library</h3>
+                    <p class="exhibit-desc">One of the most complete collections of Santa Fe Railway records, photographs, and documents in the country. Available for research by appointment.</p>
+                    <p class="exhibit-dates">By Appointment &nbsp;·&nbsp; Contact the Museum</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="permanent-section">
+    <div class="section-inner">
+        <p class="section-label on-dark">On the Grounds</p>
+        <h2 class="section-heading light">Historic Rolling Stock</h2>
+        <div class="perm-grid">
+            <div class="perm-text">
+                <p>The museum grounds display an impressive collection of historic rolling stock — the actual trains and rail cars that once moved across Texas. Walk alongside a Santa Fe caboose, a diesel locomotive, sleeper cars, and boxcars, all adjacent to an active BNSF and Amtrak rail yard.</p>
+                <p>On any given visit, you may hear or see a modern freight or passenger train passing — the same view Temple's earliest residents had in 1881.</p>
+                <a href="visit.html" class="btn btn-coral" style="margin-top:0.5rem;">Plan Your Visit</a>
+            </div>
+            <div class="perm-photo">
+                <img src="images/santa-fe-locomotive.jpg" alt="Santa Fe locomotive #1680 at the museum platform">
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <div class="footer-grid">
+        <div class="footer-brand">
+            <img src="images/logo.png" alt="Temple Railroad & Heritage Museum">
+            <p>Housed in the historic 1911 Santa Fe Depot, the museum preserves the railroad heritage and community history of Temple, Texas and all of Central Texas.</p>
+        </div>
+        <div class="footer-col">
+            <h4>Visit</h4>
+            <ul>
+                <li>315 W Ave B</li><li>Temple, TX 76501</li>
+                <li>254-298-5172</li>
+                <li><a href="mailto:rrhm@templetx.gov">rrhm@templetx.gov</a></li>
+                <li style="margin-top:0.5rem;">Tue – Sat: 10 AM – 4 PM</li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4>Explore</h4>
+            <ul>
+                <li><a href="exhibits.html">Current Exhibits</a></li>
+                <li><a href="visit.html">Plan Your Visit</a></li>
+                <li><a href="visit.html#tour">3D Virtual Tour</a></li>
+                <li><a href="events.html">Events Calendar</a></li>
+                <li><a href="group-tours.html">School Groups</a></li>
+                <li><a href="about.html">Our Story</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4>Get Involved</h4>
+            <ul>
+                <li><a href="membership.html">Membership</a></li>
+                <li><a href="index.html#donate">Donate</a></li>
+                <li><a href="events.html#volunteer">Volunteer</a></li>
+                <li><a href="rentals.html">Rent Our Space</a></li>
+                <li><a href="index.html#newsletter">Newsletter</a></li>
+                <li><a href="https://facebook.com/templerrhm/" target="_blank">Facebook</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <span>© 2026 Temple Railroad & Heritage Museum. All rights reserved.</span>
+        <span>Temple, Texas &nbsp;·&nbsp; Est. 1881</span>
+    </div>
+</footer>
+
+<script>
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+        });
+    });
+</script>
+</body>
+</html>

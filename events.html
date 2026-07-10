@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events & Programs | Temple Railroad & Heritage Museum</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .events-main { padding: 5rem 2rem; background: var(--cream); }
+        .events-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.75rem; margin-bottom: 4rem; }
+        .event-card { background: #fff; border: 1px solid #e0dbd3; border-left: 4px solid var(--coral); overflow: hidden; }
+        .event-img { height: 180px; background: var(--teal-mid); display: flex; align-items: center; justify-content: center; font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.2); }
+        .event-body { padding: 1.4rem; }
+        .event-date { font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--coral); font-weight: 700; margin-bottom: 0.4rem; }
+        .event-title { font-family: var(--serif); font-size: 1.1rem; color: var(--teal); margin-bottom: 0.4rem; line-height: 1.3; }
+        .event-desc { font-size: 0.83rem; color: #666; line-height: 1.6; }
+        .event-tag { display: inline-block; font-size: 0.6rem; letter-spacing: 0.15em; text-transform: uppercase; font-weight: 700; padding: 0.2rem 0.6rem; border-radius: 2px; margin-top: 0.75rem; }
+        .tag-members { background: rgba(26,61,60,0.1); color: var(--teal); }
+        .tag-free { background: rgba(224,88,53,0.1); color: var(--coral); }
+
+        .programs-section { padding: 5rem 2rem; background: var(--teal); }
+        .programs-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; margin-top: 2.5rem; }
+        .program-card { background: var(--teal-mid); padding: 2rem; border-top: 3px solid var(--coral); }
+        .program-card h3 { font-family: var(--serif); color: #fff; font-size: 1.15rem; margin-bottom: 0.6rem; }
+        .program-card p { font-size: 0.87rem; color: rgba(255,255,255,0.62); line-height: 1.7; margin-bottom: 1rem; }
+
+        .volunteer-section { padding: 5rem 2rem; background: var(--cream-alt); }
+        .volunteer-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+        .volunteer-text p { font-size: 0.97rem; line-height: 1.85; color: #3a3a3a; margin-bottom: 1.2rem; }
+        .volunteer-photo img { width: 100%; height: 360px; object-fit: cover; }
+    </style>
+</head>
+<body>
+
+<nav>
+    <a href="index.html" class="nav-logo">
+        <img src="images/logo.png" alt="Temple Railroad & Heritage Museum">
+        <div class="nav-logo-text"><span class="name">Temple Railroad</span><span class="sub">& Heritage Museum</span></div>
+    </a>
+    <ul class="nav-links">
+        <li class="has-dropdown"><a href="visit.html">Visit</a><ul class="dropdown-menu"><li><a href="visit.html">Plan Your Visit</a></li><li><a href="visit.html#tour">3D Virtual Tour</a></li><li><a href="group-tours.html">Group Tours</a></li></ul></li>
+        <li class="has-dropdown"><a href="exhibits.html">Exhibits</a><ul class="dropdown-menu"><li><a href="exhibits.html">Current Exhibits</a></li><li><a href="exhibits.html#upcoming">Upcoming</a></li><li><a href="exhibits.html#permanent">Permanent Collection</a></li></ul></li>
+        <li><a href="about.html">Our Story</a></li>
+        <li><a href="events.html">Events & Programs</a></li>
+        <li class="has-dropdown"><a href="membership.html">Get Involved</a><ul class="dropdown-menu"><li><a href="membership.html">Become a Member</a></li><li><a href="index.html#donate">Donate</a></li><li><a href="events.html#volunteer">Volunteer</a></li><li><a href="index.html#newsletter">Newsletter</a></li></ul></li>
+        <li><a href="rentals.html">Rent Our Space</a></li>
+    </ul>
+    <a href="visit.html" class="btn btn-coral">Buy Tickets</a>
+</nav>
+
+<div class="breadcrumb"><div class="section-inner"><a href="index.html">Home</a><span>›</span><span>Events & Programs</span></div></div>
+
+<div class="page-hero">
+    <div class="section-inner">
+        <p class="section-label">What's Happening</p>
+        <h1>Events & Programs</h1>
+        <p class="sub">From members-only First Fridays to school field trips and community festivals — there's always something happening at the depot.</p>
+    </div>
+</div>
+
+<section class="events-main">
+    <div class="section-inner">
+        <p class="section-label">Upcoming Events</p>
+        <h2 class="section-heading" style="margin-bottom:2.5rem;">Mark Your Calendar</h2>
+        <div class="events-grid">
+            <div class="event-card">
+                <div class="event-img">[ Event Photo ]</div>
+                <div class="event-body">
+                    <p class="event-date">First Friday · July 4, 2026</p>
+                    <h3 class="event-title">Members-Only First Friday</h3>
+                    <p class="event-desc">An exclusive evening at the depot for museum members. Enjoy early access to the galleries, light refreshments, and a curator meet-and-greet.</p>
+                    <span class="event-tag tag-members">Members Only</span>
+                </div>
+            </div>
+            <div class="event-card">
+                <div class="event-img">[ Event Photo ]</div>
+                <div class="event-body">
+                    <p class="event-date">August 2–27, 2026</p>
+                    <h3 class="event-title">Gadgets Galore! Opening Reception</h3>
+                    <p class="event-desc">Join us for the opening of our newest rotating exhibit exploring how industrialization transformed the American home. Light refreshments served.</p>
+                    <span class="event-tag tag-free">Free with Admission</span>
+                </div>
+            </div>
+            <div class="event-card">
+                <div class="event-img">[ Event Photo ]</div>
+                <div class="event-body">
+                    <p class="event-date">Ongoing · Tue–Sat</p>
+                    <h3 class="event-title">School Group Tours</h3>
+                    <p class="event-desc">Curriculum-aligned tours for K–12 groups. Explore the depot, examine real artifacts, and discover how Temple's founding shaped Central Texas history.</p>
+                    <span class="event-tag tag-free">Book in Advance</span>
+                </div>
+            </div>
+        </div>
+        <div style="text-align:center;padding:3rem;background:var(--cream-alt);border:2px dashed #ccc;">
+            <p style="color:#aaa;font-size:0.85rem;letter-spacing:0.08em;">Full events calendar — Google Calendar or Eventbrite embed goes here</p>
+        </div>
+    </div>
+</section>
+
+<section class="programs-section">
+    <div class="section-inner">
+        <p class="section-label on-dark">Year-Round</p>
+        <h2 class="section-heading light">Educational Programs</h2>
+        <div class="programs-grid">
+            <div class="program-card">
+                <h3>School Field Trips</h3>
+                <p>Standards-aligned programming for elementary through high school groups. Tours include a guided walk through the exhibits, interactive stations, and hands-on activities connected to Texas history curriculum.</p>
+                <a href="group-tours.html" class="btn btn-coral">Book a Group Tour</a>
+            </div>
+            <div class="program-card">
+                <h3>First Fridays</h3>
+                <p>Each first Friday of the month is reserved for museum members — a special evening with early gallery access, rotating programming, and the chance to explore the depot after hours.</p>
+                <a href="membership.html" class="btn btn-coral">Become a Member</a>
+            </div>
+            <div class="program-card">
+                <h3>Community Events</h3>
+                <p>Train Day, Gallery Nights, holiday events, and special community festivals bring the people of Temple together around the history that connects us all. Many events are free and open to the public.</p>
+                <a href="index.html#newsletter" class="btn btn-outline-white">Get Event Alerts</a>
+            </div>
+            <div class="program-card">
+                <h3>Archives & Research</h3>
+                <p>The museum holds one of the country's most significant collections of Santa Fe Railway records, photographs, and documents. Researchers can access the archive by appointment.</p>
+                <a href="visit.html" class="btn btn-outline-white">Contact Us</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="volunteer-section" id="volunteer">
+    <div class="section-inner">
+        <div class="volunteer-grid">
+            <div class="volunteer-text">
+                <p class="section-label">Get Involved</p>
+                <h2 class="section-heading">Volunteer at the Museum</h2>
+                <div class="divider"></div>
+                <p>Volunteers are the backbone of what we do. From leading tours to staffing events, supporting the gift shop, and helping with community outreach — there's a role for everyone who wants to give back to Temple's history.</p>
+                <p>We manage volunteers through the VOMO platform, which makes scheduling easy and flexible. Whether you can give one Saturday a month or want a regular role, we'd love to have you.</p>
+                <a href="#" class="btn btn-coral">Sign Up to Volunteer</a>
+            </div>
+            <div class="volunteer-photo">
+                <img src="images/stem-camp-kids.jpg" alt="Kids at a STEM camp activity in the depot lobby">
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <div class="footer-grid">
+        <div class="footer-brand"><img src="images/logo.png" alt="Temple Railroad & Heritage Museum"><p>Housed in the historic 1911 Santa Fe Depot, the museum preserves the railroad heritage and community history of Temple, Texas and all of Central Texas.</p></div>
+        <div class="footer-col"><h4>Visit</h4><ul><li>315 W Ave B</li><li>Temple, TX 76501</li><li>254-298-5172</li><li><a href="mailto:rrhm@templetx.gov">rrhm@templetx.gov</a></li><li style="margin-top:0.5rem;">Tue – Sat: 10 AM – 4 PM</li></ul></div>
+        <div class="footer-col"><h4>Explore</h4><ul><li><a href="exhibits.html">Current Exhibits</a></li><li><a href="visit.html">Plan Your Visit</a></li><li><a href="visit.html#tour">3D Virtual Tour</a></li><li><a href="events.html">Events Calendar</a></li><li><a href="group-tours.html">School Groups</a></li><li><a href="about.html">Our Story</a></li></ul></div>
+        <div class="footer-col"><h4>Get Involved</h4><ul><li><a href="membership.html">Membership</a></li><li><a href="index.html#donate">Donate</a></li><li><a href="events.html#volunteer">Volunteer</a></li><li><a href="rentals.html">Rent Our Space</a></li><li><a href="index.html#newsletter">Newsletter</a></li><li><a href="https://facebook.com/templerrhm/" target="_blank">Facebook</a></li></ul></div>
+    </div>
+    <div class="footer-bottom"><span>© 2026 Temple Railroad & Heritage Museum. All rights reserved.</span><span>Temple, Texas &nbsp;·&nbsp; Est. 1881</span></div>
+</footer>
+</body>
+</html>

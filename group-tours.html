@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Group Tours | Temple Railroad & Heritage Museum</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .tours-main { padding: 5rem 2rem; background: var(--cream); }
+        .tours-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.75rem; margin-bottom: 4rem; }
+        .tour-card { background: #fff; padding: 2rem; border-top: 4px solid var(--coral); }
+        .tour-card .t-icon { font-size: 2rem; margin-bottom: 0.75rem; }
+        .tour-card h3 { font-family: var(--serif); font-size: 1.1rem; color: var(--teal); margin-bottom: 0.6rem; }
+        .tour-card p { font-size: 0.87rem; color: #666; line-height: 1.65; margin-bottom: 1rem; }
+        .tour-card ul { list-style: none; }
+        .tour-card ul li { font-size: 0.83rem; color: #555; padding: 0.3rem 0; border-bottom: 1px solid #eee; display: flex; gap: 0.5rem; }
+        .tour-card ul li::before { content: '→'; color: var(--coral); flex-shrink: 0; }
+        .tour-card ul li:last-child { border-bottom: none; }
+
+        .book-section { padding: 5rem 2rem; background: var(--teal); }
+        .book-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
+        .book-form { background: rgba(255,255,255,0.06); padding: 2.5rem; }
+        .book-form h3 { font-family: var(--serif); color: #fff; font-size: 1.3rem; margin-bottom: 1.5rem; }
+        .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem; }
+        .form-field { display: flex; flex-direction: column; gap: 0.35rem; }
+        .form-field label { font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.6); font-weight: 600; }
+        .form-field input, .form-field select, .form-field textarea {
+            padding: 0.7rem 0.9rem;
+            background: rgba(255,255,255,0.08);
+            border: 1px solid rgba(255,255,255,0.15);
+            color: #fff;
+            font-size: 0.88rem;
+            font-family: var(--sans);
+            border-radius: 2px;
+        }
+        .form-field input::placeholder { color: rgba(255,255,255,0.35); }
+        .form-field textarea { height: 100px; resize: vertical; }
+        .book-info p { font-size: 0.95rem; line-height: 1.85; color: rgba(255,255,255,0.68); margin-bottom: 1.2rem; }
+        .info-list { list-style: none; margin-top: 1.5rem; }
+        .info-list li { font-size: 0.88rem; color: rgba(255,255,255,0.65); padding: 0.5rem 0; border-bottom: 1px solid rgba(255,255,255,0.08); display: flex; gap: 0.75rem; }
+        .info-list li::before { content: '✓'; color: var(--coral); flex-shrink: 0; }
+    </style>
+</head>
+<body>
+
+<nav>
+    <a href="index.html" class="nav-logo">
+        <img src="images/logo.png" alt="Temple Railroad & Heritage Museum">
+        <div class="nav-logo-text"><span class="name">Temple Railroad</span><span class="sub">& Heritage Museum</span></div>
+    </a>
+    <ul class="nav-links">
+        <li class="has-dropdown"><a href="visit.html">Visit</a><ul class="dropdown-menu"><li><a href="visit.html">Plan Your Visit</a></li><li><a href="visit.html#tour">3D Virtual Tour</a></li><li><a href="group-tours.html">Group Tours</a></li></ul></li>
+        <li class="has-dropdown"><a href="exhibits.html">Exhibits</a><ul class="dropdown-menu"><li><a href="exhibits.html">Current Exhibits</a></li><li><a href="exhibits.html#upcoming">Upcoming</a></li><li><a href="exhibits.html#permanent">Permanent Collection</a></li></ul></li>
+        <li><a href="about.html">Our Story</a></li>
+        <li><a href="events.html">Events & Programs</a></li>
+        <li class="has-dropdown"><a href="membership.html">Get Involved</a><ul class="dropdown-menu"><li><a href="membership.html">Become a Member</a></li><li><a href="index.html#donate">Donate</a></li><li><a href="events.html#volunteer">Volunteer</a></li><li><a href="index.html#newsletter">Newsletter</a></li></ul></li>
+        <li><a href="rentals.html">Rent Our Space</a></li>
+    </ul>
+    <a href="visit.html" class="btn btn-coral">Buy Tickets</a>
+</nav>
+
+<div class="breadcrumb"><div class="section-inner"><a href="index.html">Home</a><span>›</span><a href="visit.html">Visit</a><span>›</span><span>Group Tours</span></div></div>
+
+<div class="page-hero">
+    <div class="section-inner">
+        <p class="section-label">For Groups of 10+</p>
+        <h1>Group Tours & School Visits</h1>
+        <p class="sub">Bring your class, your organization, or your club to the 1911 Santa Fe Depot for a guided experience tailored to your group's interests and grade level.</p>
+    </div>
+</div>
+
+<section class="tours-main">
+    <div class="section-inner">
+        <p class="section-label">Tour Options</p>
+        <h2 class="section-heading" style="margin-bottom:2.5rem;">Experiences for Every Group</h2>
+        <div class="tours-grid">
+            <div class="tour-card">
+                <div class="t-icon">🏫</div>
+                <h3>School Field Trips</h3>
+                <p>Curriculum-aligned tours designed for K–12 students, connecting Texas history standards to hands-on exploration of the depot, exhibits, and rolling stock.</p>
+                <ul>
+                    <li>Grades K–12</li>
+                    <li>Guided by museum educators</li>
+                    <li>Interactive stations included</li>
+                    <li>Pre- and post-visit resources available</li>
+                    <li>Discounted group admission</li>
+                </ul>
+            </div>
+            <div class="tour-card">
+                <div class="t-icon">🏢</div>
+                <h3>Corporate & Organization Tours</h3>
+                <p>A unique team-building or networking experience in one of Temple's most distinctive historic spaces. Great for onboarding, client events, or community outreach.</p>
+                <ul>
+                    <li>Groups of any size</li>
+                    <li>Flexible scheduling</li>
+                    <li>Add a private reception option</li>
+                    <li>Catering coordination available</li>
+                </ul>
+            </div>
+            <div class="tour-card">
+                <div class="t-icon">👴</div>
+                <h3>Senior & Community Groups</h3>
+                <p>Accessible, engaging tours for senior centers, civic organizations, and community groups — perfect for anyone who remembers when the railroad was still the backbone of Central Texas.</p>
+                <ul>
+                    <li>ADA accessible throughout</li>
+                    <li>Relaxed pace tours available</li>
+                    <li>Group discounted admission</li>
+                    <li>Seating available throughout depot</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="book-section">
+    <div class="section-inner">
+        <div class="book-grid">
+            <div class="book-info">
+                <p class="section-label on-dark">Book a Tour</p>
+                <h2 class="section-heading light">Let's Plan Your Visit</h2>
+                <p>Group tours must be scheduled in advance. We recommend booking at least two weeks ahead, especially for school groups during the fall and spring semesters.</p>
+                <ul class="info-list">
+                    <li>Minimum group size: 10 people</li>
+                    <li>Available Tuesday through Friday</li>
+                    <li>Morning and afternoon slots</li>
+                    <li>Discounted admission for groups of 15+</li>
+                    <li>Free chaperone admission for school groups</li>
+                    <li>Parking available on-site at no charge</li>
+                </ul>
+            </div>
+            <div class="book-form">
+                <h3>Request a Group Tour</h3>
+                <div class="form-row">
+                    <div class="form-field"><label>First Name</label><input type="text" placeholder="First name"></div>
+                    <div class="form-field"><label>Last Name</label><input type="text" placeholder="Last name"></div>
+                </div>
+                <div class="form-row">
+                    <div class="form-field"><label>Organization</label><input type="text" placeholder="School / organization"></div>
+                    <div class="form-field"><label>Phone</label><input type="tel" placeholder="Phone number"></div>
+                </div>
+                <div class="form-row">
+                    <div class="form-field"><label>Preferred Date</label><input type="date"></div>
+                    <div class="form-field"><label>Group Size</label><input type="number" placeholder="Number of guests"></div>
+                </div>
+                <div class="form-field" style="margin-bottom:1rem;"><label>Tour Type</label>
+                    <select>
+                        <option>School Field Trip</option>
+                        <option>Corporate / Organization</option>
+                        <option>Senior / Community Group</option>
+                        <option>Other</option>
+                    </select>
+                </div>
+                <div class="form-field" style="margin-bottom:1.5rem;"><label>Additional Notes</label><textarea placeholder="Tell us about your group and any special needs..."></textarea></div>
+                <button class="btn btn-coral" style="width:100%;text-align:center;">Submit Request</button>
+                <p style="font-size:0.72rem;color:rgba(255,255,255,0.35);margin-top:0.75rem;text-align:center;">We'll follow up within 2 business days.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <div class="footer-grid">
+        <div class="footer-brand"><img src="images/logo.png" alt="Temple Railroad & Heritage Museum"><p>Housed in the historic 1911 Santa Fe Depot, the museum preserves the railroad heritage and community history of Temple, Texas and all of Central Texas.</p></div>
+        <div class="footer-col"><h4>Visit</h4><ul><li>315 W Ave B</li><li>Temple, TX 76501</li><li>254-298-5172</li><li><a href="mailto:rrhm@templetx.gov">rrhm@templetx.gov</a></li><li style="margin-top:0.5rem;">Tue – Sat: 10 AM – 4 PM</li></ul></div>
+        <div class="footer-col"><h4>Explore</h4><ul><li><a href="exhibits.html">Current Exhibits</a></li><li><a href="visit.html">Plan Your Visit</a></li><li><a href="visit.html#tour">3D Virtual Tour</a></li><li><a href="events.html">Events Calendar</a></li><li><a href="group-tours.html">School Groups</a></li><li><a href="about.html">Our Story</a></li></ul></div>
+        <div class="footer-col"><h4>Get Involved</h4><ul><li><a href="membership.html">Membership</a></li><li><a href="index.html#donate">Donate</a></li><li><a href="events.html#volunteer">Volunteer</a></li><li><a href="rentals.html">Rent Our Space</a></li><li><a href="index.html#newsletter">Newsletter</a></li><li><a href="https://facebook.com/templerrhm/" target="_blank">Facebook</a></li></ul></div>
+    </div>
+    <div class="footer-bottom"><span>© 2026 Temple Railroad & Heritage Museum. All rights reserved.</span><span>Temple, Texas &nbsp;·&nbsp; Est. 1881</span></div>
+</footer>
+</body>
+</html>

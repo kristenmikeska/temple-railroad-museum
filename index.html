@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temple Railroad & Heritage Museum — Temple, Texas</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .hero {
+            min-height: 90vh;
+            position: relative;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+        }
+        .hero-bg {
+            position: absolute;
+            inset: 0;
+            background: url('images/hero-sunset.jpg') center/cover no-repeat;
+        }
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(105deg, rgba(26,61,60,0.94) 0%, rgba(26,61,60,0.82) 45%, rgba(26,61,60,0.28) 100%);
+        }
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            padding: 4rem 2rem 4rem 4rem;
+            max-width: 680px;
+        }
+        .hero-eyebrow {
+            font-size: 0.68rem;
+            letter-spacing: 0.32em;
+            text-transform: uppercase;
+            color: var(--coral);
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .hero-eyebrow::before {
+            content: '';
+            display: inline-block;
+            width: 28px;
+            height: 2px;
+            background: var(--coral);
+        }
+        .hero-headline {
+            font-family: var(--serif);
+            font-size: clamp(2.8rem, 5.5vw, 4.5rem);
+            line-height: 1.06;
+            color: #fff;
+            margin-bottom: 0.5rem;
+        }
+        .hero-headline em { font-style: normal; color: var(--coral); }
+        .hero-sub {
+            font-family: var(--serif);
+            font-size: clamp(1.1rem, 2.2vw, 1.55rem);
+            color: rgba(255,255,255,0.72);
+            font-style: italic;
+            margin-bottom: 1.75rem;
+        }
+        .hero-body {
+            font-size: 0.97rem;
+            line-height: 1.82;
+            color: rgba(255,255,255,0.62);
+            max-width: 500px;
+            margin-bottom: 2.5rem;
+        }
+        .hero-ctas { display: flex; gap: 1rem; flex-wrap: wrap; }
+
+        .stats-bar { background: var(--coral); padding: 1rem 2rem; }
+        .stats-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            text-align: center;
+        }
+        .stat-item .number {
+            font-family: var(--serif);
+            font-size: 1.9rem;
+            font-weight: bold;
+            color: #fff;
+            line-height: 1;
+        }
+        .stat-item .label {
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: rgba(255,255,255,0.72);
+            margin-top: 0.2rem;
+        }
+
+        .story-section { padding: 5.5rem 2rem; background: var(--cream); }
+        .story-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4.5rem;
+            align-items: center;
+        }
+        .story-text p { font-size: 0.97rem; line-height: 1.85; color: #3a3a3a; margin-bottom: 1.2rem; }
+        .story-photo { position: relative; }
+        .story-photo img { width: 100%; height: 420px; object-fit: cover; }
+        .story-photo::after {
+            content: 'Est. 1881';
+            position: absolute;
+            bottom: -1rem;
+            right: -1rem;
+            background: var(--teal);
+            color: var(--coral);
+            font-family: var(--serif);
+            font-size: 1rem;
+            font-style: italic;
+            padding: 0.75rem 1.25rem;
+            border-left: 3px solid var(--coral);
+        }
+
+        .exhibits-section { padding: 5.5rem 2rem; background: var(--teal); }
+        .exhibits-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 2.5rem; }
+        .exhibits-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+        .exhibit-card { background: var(--teal-mid); overflow: hidden; transition: transform 0.25s; }
+        .exhibit-card:hover { transform: translateY(-5px); }
+        .exhibit-img {
+            height: 210px;
+            background: var(--teal-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.68rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.2);
+            overflow: hidden;
+        }
+        .exhibit-img img { width: 100%; height: 100%; object-fit: cover; }
+        .exhibit-body { padding: 1.5rem; }
+        .exhibit-tag { font-size: 0.62rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--coral); font-weight: 700; margin-bottom: 0.5rem; }
+        .exhibit-title { font-family: var(--serif); font-size: 1.18rem; color: #fff; margin-bottom: 0.6rem; line-height: 1.3; }
+        .exhibit-desc { font-size: 0.83rem; color: rgba(255,255,255,0.55); line-height: 1.65; }
+
+        .visit-section { padding: 5.5rem 2rem; background: var(--cream-alt); }
+        .visit-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.75rem; }
+        .visit-card { background: #fff; padding: 2rem; border-top: 4px solid var(--coral); }
+        .visit-card h3 { font-family: var(--serif); font-size: 1.15rem; color: var(--teal); margin-bottom: 1rem; }
+        .visit-card p { font-size: 0.9rem; line-height: 1.7; color: #555; }
+        .admission-row { display: flex; justify-content: space-between; padding: 0.45rem 0; border-bottom: 1px solid #eee; font-size: 0.88rem; color: #444; }
+        .admission-row:last-of-type { border-bottom: none; }
+        .admission-row .price { font-weight: 700; color: var(--teal); }
+        .tour-callout { background: var(--teal); padding: 1.3rem; margin-top: 1rem; display: flex; flex-direction: column; gap: 0.75rem; }
+        .tour-callout p { color: rgba(255,255,255,0.7) !important; font-size: 0.83rem !important; }
+
+        .events-section { padding: 5.5rem 2rem; background: var(--cream); }
+        .events-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+        .event-card { background: #fff; border: 1px solid #e0dbd3; padding: 1.5rem; border-left: 4px solid var(--coral); }
+        .event-date { font-size: 0.68rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--coral); font-weight: 700; margin-bottom: 0.5rem; }
+        .event-title { font-family: var(--serif); font-size: 1.1rem; color: var(--teal); margin-bottom: 0.4rem; }
+        .event-desc { font-size: 0.83rem; color: #666; line-height: 1.6; }
+
+        .membership-section { padding: 5.5rem 2rem; background: var(--teal); }
+        .membership-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 1rem; margin-top: 2.5rem; }
+        .member-card { background: var(--teal-mid); padding: 1.75rem 1.1rem; border-top: 3px solid rgba(255,255,255,0.1); text-align: center; transition: background 0.2s; position: relative; }
+        .member-card.featured { background: rgba(224,88,53,0.15); border-top: 3px solid var(--coral); }
+        .member-card.featured::before {
+            content: 'Most Popular';
+            position: absolute; top: -12px; left: 50%; transform: translateX(-50%);
+            background: var(--coral); color: #fff;
+            font-size: 0.58rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase;
+            padding: 0.2rem 0.7rem; white-space: nowrap;
+        }
+        .member-card:hover { background: var(--teal-light); }
+        .tier-name { font-size: 0.65rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--coral); font-weight: 700; margin-bottom: 0.8rem; }
+        .tier-price { font-family: var(--serif); font-size: 2rem; color: #fff; font-weight: bold; line-height: 1; }
+        .tier-price span { font-size: 0.9rem; opacity: 0.5; }
+        .tier-people { font-size: 0.72rem; color: rgba(255,255,255,0.4); margin: 0.4rem 0 1.3rem; }
+        .tier-perks { list-style: none; text-align: left; margin-bottom: 1.5rem; }
+        .tier-perks li { font-size: 0.76rem; color: rgba(255,255,255,0.65); padding: 0.3rem 0; border-bottom: 1px solid rgba(255,255,255,0.07); display: flex; align-items: flex-start; gap: 0.4rem; line-height: 1.4; }
+        .tier-perks li::before { content: '✓'; color: var(--coral); font-size: 0.68rem; flex-shrink: 0; margin-top: 0.1rem; }
+        .member-card .btn { width: 100%; text-align: center; display: block; }
+
+        .donate-band { padding: 5rem 2rem; background: url('images/depot-exterior.jpg') center/cover no-repeat; position: relative; text-align: center; }
+        .donate-band::before { content: ''; position: absolute; inset: 0; background: rgba(26,61,60,0.88); }
+        .donate-band .section-inner { position: relative; z-index: 1; }
+        .donate-band h2 { font-family: var(--serif); font-size: clamp(2rem, 4vw, 3rem); color: #fff; margin-bottom: 1rem; }
+        .donate-band p { color: rgba(255,255,255,0.68); font-size: 1rem; line-height: 1.8; max-width: 620px; margin: 0 auto 2.5rem; }
+        .donate-amounts { display: flex; justify-content: center; gap: 0.75rem; margin-bottom: 2rem; flex-wrap: wrap; }
+        .amount-btn { padding: 0.75rem 1.4rem; background: rgba(255,255,255,0.08); border: 2px solid rgba(255,255,255,0.3); font-size: 1rem; font-weight: 700; cursor: pointer; color: #fff; border-radius: 2px; font-family: var(--sans); transition: all 0.2s; }
+        .amount-btn:hover, .amount-btn.active { border-color: var(--coral); background: var(--coral); }
+        .donate-fine { font-size: 0.72rem; color: rgba(255,255,255,0.35); margin-top: 1rem; }
+
+        .testimonial-section {
+            background: #fff;
+            padding: 4.5rem 2rem;
+            border-top: 1px solid #e8e2d8;
+            border-bottom: 1px solid #e8e2d8;
+        }
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 3rem;
+            margin-top: 1.5rem;
+        }
+        .testimonial-item {
+            position: relative;
+            padding-top: 2.25rem;
+        }
+        .testimonial-item::before {
+            content: '\201C';
+            position: absolute;
+            top: -0.75rem;
+            left: -0.25rem;
+            font-family: var(--serif);
+            font-size: 5rem;
+            color: var(--coral);
+            line-height: 1;
+            opacity: 0.45;
+        }
+        .testimonial-item blockquote {
+            font-family: var(--serif);
+            font-style: italic;
+            font-size: 1rem;
+            color: #3a3a3a;
+            line-height: 1.75;
+            margin-bottom: 1rem;
+        }
+        .testimonial-item cite {
+            font-size: 0.78rem;
+            color: #999;
+            letter-spacing: 0.06em;
+            font-style: normal;
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <a href="index.html" class="nav-logo">
+        <img src="images/logo.png" alt="Temple Railroad & Heritage Museum">
+        <div class="nav-logo-text">
+            <span class="name">Temple Railroad</span>
+            <span class="sub">& Heritage Museum</span>
+        </div>
+    </a>
+    <ul class="nav-links">
+        <li class="has-dropdown"><a href="visit.html">Visit</a>
+            <ul class="dropdown-menu">
+                <li><a href="visit.html">Plan Your Visit</a></li>
+                <li><a href="visit.html#tour">3D Virtual Tour</a></li>
+                <li><a href="group-tours.html">Group Tours</a></li>
+            </ul>
+        </li>
+        <li class="has-dropdown"><a href="exhibits.html">Exhibits</a>
+            <ul class="dropdown-menu">
+                <li><a href="exhibits.html">Current Exhibits</a></li>
+                <li><a href="exhibits.html#upcoming">Upcoming</a></li>
+                <li><a href="exhibits.html#permanent">Permanent Collection</a></li>
+            </ul>
+        </li>
+        <li><a href="about.html">Our Story</a></li>
+        <li><a href="events.html">Events & Programs</a></li>
+        <li class="has-dropdown"><a href="membership.html">Get Involved</a>
+            <ul class="dropdown-menu">
+                <li><a href="membership.html">Become a Member</a></li>
+                <li><a href="index.html#donate">Donate</a></li>
+                <li><a href="events.html#volunteer">Volunteer</a></li>
+                <li><a href="index.html#newsletter">Newsletter</a></li>
+            </ul>
+        </li>
+        <li><a href="rentals.html">Rent Our Space</a></li>
+    </ul>
+    <a href="visit.html" class="btn btn-coral">Buy Tickets</a>
+</nav>
+
+<div class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+        <p class="hero-eyebrow">Temple, Texas &nbsp;·&nbsp; Est. 1881</p>
+        <h1 class="hero-headline">The Railroad<br><em>Built This City.</em></h1>
+        <p class="hero-sub">This Museum Keeps It Alive.</p>
+        <p class="hero-body">On June 29, 1881, two railways converged at Temple Junction and auctioned off 185 lots on the Texas prairie — and a city was born. Inside the restored 1911 Santa Fe Depot, that story has never stopped being told.</p>
+        <div class="hero-ctas">
+            <a href="visit.html" class="btn btn-coral">Plan Your Visit</a>
+            <a href="membership.html" class="btn btn-outline-white">Become a Member</a>
+        </div>
+    </div>
+</div>
+
+<div class="stats-bar">
+    <div class="stats-inner">
+        <div class="stat-item"><div class="number">1881</div><div class="label">Year Temple Was Founded</div></div>
+        <div class="stat-item"><div class="number">50+</div><div class="label">Years Preserving History</div></div>
+        <div class="stat-item"><div class="number">1911</div><div class="label">Year the Depot Was Built</div></div>
+        <div class="stat-item"><div class="number">Free</div><div class="label">Admission for Ages 0–4</div></div>
+    </div>
+</div>
+
+<section class="story-section" id="story">
+    <div class="section-inner">
+        <div class="story-grid">
+            <div class="story-text">
+                <p class="section-label">Our Story</p>
+                <h2 class="section-heading">Temple Didn't Just Grow<br>Alongside the Railroad.<br>It Was Born Because of It.</h2>
+                <div class="divider"></div>
+                <p>On June 29, 1881, two major railways — the Gulf, Colorado & Santa Fe Railway and the Missouri-Kansas-Texas Railroad — converged at Temple Junction and auctioned off 157 business lots and 28 residential lots on the Texas prairie. The city was named in honor of Bernard Moore Temple, the Santa Fe's chief engineer.</p>
+                <p>The railroad didn't just found Temple. It built its first hospital in 1891. It connected Central Texas to the nation. And when the historic Santa Fe Depot fell quiet in the 1990s, the people of Temple invested $4 million to bring it back.</p>
+                <a href="about.html" class="btn btn-teal" style="margin-top:0.75rem;">Read Our Full History</a>
+            </div>
+            <div class="story-photo">
+                <img src="images/depot-exterior.jpg" alt="The Historic Santa Fe Depot, Temple TX">
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="exhibits-section" id="exhibits">
+    <div class="section-inner">
+        <div class="exhibits-header">
+            <div>
+                <p class="section-label on-dark">On View Now</p>
+                <h2 class="section-heading light">What's Inside the Depot</h2>
+            </div>
+            <a href="exhibits.html" class="btn btn-outline-white">View All Exhibits</a>
+        </div>
+        <div class="exhibits-grid">
+            <div class="exhibit-card">
+                <div class="exhibit-img"><img src="images/vaquero-exhibit-gallery.jpg" alt="Vaquero exhibit — saddles, photographs, and papel picado on display"></div>
+                <div class="exhibit-body">
+                    <p class="exhibit-tag">On View · Through July 10, 2026</p>
+                    <h3 class="exhibit-title">Vaquero: Genesis of the Texas Cowboy</h3>
+                    <p class="exhibit-desc">Photographs by Bill Wittliff document vaquero culture and its enduring influence on American Western ranching traditions.</p>
+                </div>
+            </div>
+            <div class="exhibit-card">
+                <div class="exhibit-img"><img src="images/kids-gift-shop.jpg" alt="Young visitors browsing inside the museum"></div>
+                <div class="exhibit-body">
+                    <p class="exhibit-tag">On View Now</p>
+                    <h3 class="exhibit-title">Homespun History</h3>
+                    <p class="exhibit-desc">Historic quilts from the museum's collection tell family stories through handmade textiles spanning generations of Central Texas craftsmanship.</p>
+                </div>
+            </div>
+            <div class="exhibit-card">
+                <div class="exhibit-img"><img src="images/steam-locomotive.jpg" alt="Steam locomotive #3423 on the museum grounds"></div>
+                <div class="exhibit-body">
+                    <p class="exhibit-tag">Permanent Collection</p>
+                    <h3 class="exhibit-title">Railroad Heritage of Central Texas</h3>
+                    <p class="exhibit-desc">One of the nation's most significant Santa Fe Railway archives — artifacts, rolling stock, and records tracing how the railroad built this region.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="visit-section" id="visit">
+    <div class="section-inner">
+        <p class="section-label">Plan Your Visit</p>
+        <h2 class="section-heading">Come See Us at the Depot</h2>
+        <div class="divider"></div>
+        <div class="visit-grid">
+            <div class="visit-card">
+                <h3>Hours & Location</h3>
+                <p style="margin-bottom:1rem;"><strong>315 W Ave B<br>Temple, Texas 76501</strong><br><span style="font-size:0.8rem;color:#888;display:block;margin-top:0.25rem;">Adjacent to an active BNSF/Amtrak rail yard</span></p>
+                <div class="admission-row"><span>Tuesday – Saturday</span><span class="price">10 AM – 4 PM</span></div>
+                <div class="admission-row"><span>Sunday – Monday</span><span class="price">Closed</span></div>
+                <a href="visit.html" class="btn btn-teal" style="margin-top:1.25rem;width:100%;text-align:center;display:block;">Get Directions</a>
+            </div>
+            <div class="visit-card">
+                <h3>Admission</h3>
+                <div class="admission-row"><span>Children (ages 0–4)</span><span class="price">FREE</span></div>
+                <div class="admission-row"><span>Children (ages 5–12)</span><span class="price">$2</span></div>
+                <div class="admission-row"><span>Adults (ages 13–59)</span><span class="price">$4</span></div>
+                <div class="admission-row"><span>Seniors (60+)</span><span class="price">$3</span></div>
+                <div class="admission-row"><span>Active Military</span><span class="price">FREE</span></div>
+                <p style="margin-top:1rem;font-size:0.8rem;color:#888;">Members receive free admission. <a href="membership.html" style="color:var(--coral);font-weight:600;">Join today →</a></p>
+            </div>
+            <div class="visit-card">
+                <h3>3D Virtual Tour</h3>
+                <p>Can't visit in person? Step inside the historic 1911 Santa Fe Depot from anywhere in the world with our immersive 3D virtual tour.</p>
+                <div class="tour-callout">
+                    <p>Walk the galleries, explore rolling stock, and experience the depot in full 360°.</p>
+                    <a href="visit.html#tour" class="btn btn-coral">Launch Virtual Tour</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="events-section" id="events">
+    <div class="section-inner">
+        <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:2.5rem;">
+            <div>
+                <p class="section-label">What's Coming Up</p>
+                <h2 class="section-heading">Events & Programs</h2>
+            </div>
+            <a href="events.html" class="btn btn-outline-coral">View All Events</a>
+        </div>
+        <div class="events-grid">
+            <div class="event-card">
+                <p class="event-date">First Friday · July 4, 2026</p>
+                <h3 class="event-title">Members-Only First Friday</h3>
+                <p class="event-desc">An exclusive evening at the depot for museum members. Enjoy early access to the galleries, light refreshments, and a curator meet-and-greet.</p>
+            </div>
+            <div class="event-card">
+                <p class="event-date">August 2–27, 2026</p>
+                <h3 class="event-title">Gadgets Galore!</h3>
+                <p class="event-desc">Explore how industrialization transformed the American home. Featuring gadgets both recognizable and wonderfully strange from the 19th century.</p>
+            </div>
+            <div class="event-card">
+                <p class="event-date">Ongoing · School Year</p>
+                <h3 class="event-title">School Group Tours</h3>
+                <p class="event-desc">Curriculum-aligned tours for K–12 groups. Explore the depot, examine real railroad artifacts, and discover how Temple's founding shaped Central Texas.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="testimonial-section">
+    <div class="section-inner">
+        <p class="section-label" style="text-align:center;">What People Are Saying</p>
+        <div class="testimonial-grid">
+            <div class="testimonial-item">
+                <blockquote>"My son asked three times this week when we can go back. That's a good museum."</blockquote>
+                <cite>— A Temple family, Spring 2026</cite>
+            </div>
+            <div class="testimonial-item">
+                <blockquote>"I've lived in Temple my whole life and never knew this much about where I grew up. It hit different."</blockquote>
+                <cite>— Local visitor, 2025</cite>
+            </div>
+            <div class="testimonial-item">
+                <blockquote>"The kids didn't want to leave. There's something here for every age — and the building itself is stunning."</blockquote>
+                <cite>— School group coordinator, 2025</cite>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="membership-section" id="membership">
+    <div class="section-inner">
+        <p class="section-label on-dark">Join the Journey</p>
+        <h2 class="section-heading light">Become a Member</h2>
+        <p style="color:rgba(255,255,255,0.58);max-width:580px;line-height:1.75;font-size:0.93rem;">Your membership directly supports the preservation of Temple's railroad heritage — and opens the door to a community that cares deeply about where this city came from.</p>
+        <div class="membership-grid">
+            <div class="member-card">
+                <p class="tier-name">Individual</p>
+                <div class="tier-price">$40<span>/yr</span></div>
+                <p class="tier-people">1 person</p>
+                <ul class="tier-perks">
+                    <li>Free museum admission</li>
+                    <li>15% gift shop discount</li>
+                    <li>Members-only events</li>
+                    <li>Canvas tote bag</li>
+                    <li>Member sticker</li>
+                </ul>
+                <a href="membership.html" class="btn btn-outline-white">Join</a>
+            </div>
+            <div class="member-card">
+                <p class="tier-name">Dual</p>
+                <div class="tier-price">$70<span>/yr</span></div>
+                <p class="tier-people">2 people</p>
+                <ul class="tier-perks">
+                    <li>Free admission for 2</li>
+                    <li>15% gift shop discount</li>
+                    <li>Members-only events</li>
+                    <li>Canvas tote bag</li>
+                    <li>2 member stickers</li>
+                </ul>
+                <a href="membership.html" class="btn btn-outline-white">Join</a>
+            </div>
+            <div class="member-card featured">
+                <p class="tier-name">Family</p>
+                <div class="tier-price">$125<span>/yr</span></div>
+                <p class="tier-people">Up to 5 people</p>
+                <ul class="tier-perks">
+                    <li>Free admission for 5</li>
+                    <li>20% gift shop discount</li>
+                    <li>NARM reciprocal access</li>
+                    <li>Up to 4 conductor hats</li>
+                    <li>Members-only events</li>
+                </ul>
+                <a href="membership.html" class="btn btn-coral">Join</a>
+            </div>
+            <div class="member-card">
+                <p class="tier-name">Engineer</p>
+                <div class="tier-price">$250<span>/yr</span></div>
+                <p class="tier-people">Up to 7 people</p>
+                <ul class="tier-perks">
+                    <li>Free admission for 7</li>
+                    <li>NARM reciprocal access</li>
+                    <li>4 Train Day tickets</li>
+                    <li>Branded mugs & tumblers</li>
+                    <li>Members-only events</li>
+                </ul>
+                <a href="membership.html" class="btn btn-outline-white">Join</a>
+            </div>
+            <div class="member-card">
+                <p class="tier-name">Superintendent</p>
+                <div class="tier-price">$500<span>/yr</span></div>
+                <p class="tier-people">Up to 7 people</p>
+                <ul class="tier-perks">
+                    <li>All Engineer benefits</li>
+                    <li>3-hr caboose rental free</li>
+                    <li>2 comp. event admissions</li>
+                    <li>Museum recognition</li>
+                </ul>
+                <a href="membership.html" class="btn btn-outline-white">Join</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="donate-band" id="donate">
+    <div class="section-inner">
+        <p class="section-label on-dark">Support the Museum</p>
+        <h2>Help Us Keep History<br>on the Track</h2>
+        <p>Temple began with a railroad auction on June 29, 1881 — and the stories that grew from that prairie morning deserve to be told for another 140 years. Your gift supports exhibits, archives, education programs, and the ongoing stewardship of the Santa Fe Depot.</p>
+        <div class="donate-amounts">
+            <button class="amount-btn">$25</button>
+            <button class="amount-btn active">$50</button>
+            <button class="amount-btn">$100</button>
+            <button class="amount-btn">$250</button>
+            <button class="amount-btn">Other</button>
+        </div>
+        <a href="#" class="btn btn-coral" style="font-size:0.9rem;padding:1rem 3rem;">Donate Now</a>
+        <p class="donate-fine">Your donation supports the Temple Railroad & Heritage Museum Foundation, a 501(c)(3) nonprofit organization.</p>
+    </div>
+</section>
+
+<section id="newsletter" style="background:var(--cream-alt);padding:3.5rem 2rem;text-align:center;">
+    <div class="section-inner" style="max-width:600px;">
+        <p class="section-label" style="text-align:center;">Stay Connected</p>
+        <h2 class="section-heading" style="text-align:center;font-size:1.8rem;">Join Our Newsletter</h2>
+        <p style="color:#666;margin-bottom:2rem;line-height:1.7;font-size:0.95rem;">Get updates on exhibits, events, and member exclusives delivered to your inbox.</p>
+        <div style="display:flex;gap:0.75rem;justify-content:center;flex-wrap:wrap;">
+            <input type="email" placeholder="your@email.com" style="padding:0.75rem 1.25rem;border:2px solid #ccc;border-radius:2px;font-size:0.9rem;flex:1;max-width:320px;font-family:var(--sans);">
+            <button class="btn btn-coral" style="white-space:nowrap;">Subscribe</button>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <div class="footer-grid">
+        <div class="footer-brand">
+            <img src="images/logo.png" alt="Temple Railroad & Heritage Museum">
+            <p>Housed in the historic 1911 Santa Fe Depot, the museum preserves the railroad heritage and community history of Temple, Texas and all of Central Texas.</p>
+        </div>
+        <div class="footer-col">
+            <h4>Visit</h4>
+            <ul>
+                <li>315 W Ave B</li>
+                <li>Temple, TX 76501</li>
+                <li>254-298-5172</li>
+                <li><a href="mailto:rrhm@templetx.gov">rrhm@templetx.gov</a></li>
+                <li style="margin-top:0.5rem;">Tue – Sat: 10 AM – 4 PM</li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4>Explore</h4>
+            <ul>
+                <li><a href="exhibits.html">Current Exhibits</a></li>
+                <li><a href="visit.html">Plan Your Visit</a></li>
+                <li><a href="visit.html#tour">3D Virtual Tour</a></li>
+                <li><a href="events.html">Events Calendar</a></li>
+                <li><a href="group-tours.html">School Groups</a></li>
+                <li><a href="about.html">Our Story</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4>Get Involved</h4>
+            <ul>
+                <li><a href="membership.html">Membership</a></li>
+                <li><a href="#donate">Donate</a></li>
+                <li><a href="events.html#volunteer">Volunteer</a></li>
+                <li><a href="rentals.html">Rent Our Space</a></li>
+                <li><a href="#newsletter">Newsletter</a></li>
+                <li><a href="https://facebook.com/templerrhm/" target="_blank">Facebook</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <span>© 2026 Temple Railroad & Heritage Museum. All rights reserved.</span>
+        <span>Temple, Texas &nbsp;·&nbsp; Est. 1881</span>
+    </div>
+</footer>
+
+<script>
+    document.querySelectorAll('.amount-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            document.querySelectorAll('.amount-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+        });
+    });
+</script>
+</body>
+</html>

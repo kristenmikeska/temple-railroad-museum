@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plan Your Visit | Temple Railroad & Heritage Museum</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .visit-main { padding: 5rem 2rem; background: var(--cream); }
+        .visit-top-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 1.75rem;
+            margin-bottom: 4rem;
+        }
+        .info-card { background: #fff; padding: 2rem; border-top: 4px solid var(--coral); }
+        .info-card h3 { font-family: var(--serif); font-size: 1.15rem; color: var(--teal); margin-bottom: 1rem; }
+        .info-card p { font-size: 0.9rem; line-height: 1.7; color: #555; }
+        .row { display: flex; justify-content: space-between; padding: 0.45rem 0; border-bottom: 1px solid #eee; font-size: 0.88rem; color: #444; }
+        .row:last-of-type { border-bottom: none; }
+        .row .val { font-weight: 700; color: var(--teal); }
+        .callout { background: var(--teal); padding: 1.3rem; margin-top: 1rem; display: flex; flex-direction: column; gap: 0.75rem; }
+        .callout p { color: rgba(255,255,255,0.7) !important; font-size: 0.83rem !important; }
+
+        .map-section {
+            background: var(--cream-alt);
+            height: 360px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px dashed #ccc;
+            font-size: 0.8rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: #aaa;
+            margin-bottom: 4rem;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+        .map-section .map-icon { font-size: 2.5rem; }
+
+        .tour-section { padding: 5rem 2rem; background: var(--teal); }
+        .tour-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+        .tour-text p { font-size: 0.97rem; line-height: 1.85; color: rgba(255,255,255,0.7); margin-bottom: 1.2rem; }
+        .tour-embed {
+            background: var(--teal-mid);
+            height: 350px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px dashed rgba(255,255,255,0.15);
+            font-size: 0.75rem;
+            color: rgba(255,255,255,0.25);
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+        .tour-embed .t-icon { font-size: 2.5rem; opacity: 0.3; }
+
+        .access-section { padding: 4rem 2rem; background: var(--cream-alt); }
+        .access-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; margin-top: 2rem; }
+        .access-item { text-align: center; padding: 1.5rem; background: #fff; }
+        .access-item .a-icon { font-size: 1.75rem; margin-bottom: 0.5rem; }
+        .access-item h4 { font-size: 0.85rem; font-family: var(--serif); color: var(--teal); margin-bottom: 0.4rem; }
+        .access-item p { font-size: 0.78rem; color: #666; line-height: 1.5; }
+    </style>
+</head>
+<body>
+
+<nav>
+    <a href="index.html" class="nav-logo">
+        <img src="images/logo.png" alt="Temple Railroad & Heritage Museum">
+        <div class="nav-logo-text">
+            <span class="name">Temple Railroad</span>
+            <span class="sub">& Heritage Museum</span>
+        </div>
+    </a>
+    <ul class="nav-links">
+        <li class="has-dropdown"><a href="visit.html">Visit</a>
+            <ul class="dropdown-menu">
+                <li><a href="visit.html">Plan Your Visit</a></li>
+                <li><a href="visit.html#tour">3D Virtual Tour</a></li>
+                <li><a href="group-tours.html">Group Tours</a></li>
+            </ul>
+        </li>
+        <li class="has-dropdown"><a href="exhibits.html">Exhibits</a>
+            <ul class="dropdown-menu">
+                <li><a href="exhibits.html">Current Exhibits</a></li>
+                <li><a href="exhibits.html#upcoming">Upcoming</a></li>
+                <li><a href="exhibits.html#permanent">Permanent Collection</a></li>
+            </ul>
+        </li>
+        <li><a href="about.html">Our Story</a></li>
+        <li><a href="events.html">Events & Programs</a></li>
+        <li class="has-dropdown"><a href="membership.html">Get Involved</a>
+            <ul class="dropdown-menu">
+                <li><a href="membership.html">Become a Member</a></li>
+                <li><a href="index.html#donate">Donate</a></li>
+                <li><a href="events.html#volunteer">Volunteer</a></li>
+                <li><a href="index.html#newsletter">Newsletter</a></li>
+            </ul>
+        </li>
+        <li><a href="rentals.html">Rent Our Space</a></li>
+    </ul>
+    <a href="visit.html" class="btn btn-coral">Buy Tickets</a>
+</nav>
+
+<div class="breadcrumb">
+    <div class="section-inner"><a href="index.html">Home</a><span>›</span><span>Plan Your Visit</span></div>
+</div>
+
+<div class="page-hero">
+    <div class="section-inner">
+        <p class="section-label">Plan Your Visit</p>
+        <h1>Come See Us at the Depot</h1>
+        <p class="sub">We're open Tuesday through Saturday at the historic 1911 Santa Fe Depot in the heart of Temple, Texas — right next to an active rail yard.</p>
+    </div>
+</div>
+
+<section class="visit-main">
+    <div class="section-inner">
+        <div class="visit-top-grid">
+            <div class="info-card">
+                <h3>Hours & Location</h3>
+                <p style="margin-bottom:1rem;"><strong>315 W Ave B<br>Temple, Texas 76501</strong><br>
+                <span style="font-size:0.8rem;color:#888;display:block;margin-top:0.25rem;">Adjacent to BNSF/Amtrak rail yard<br>Parking available on-site</span></p>
+                <div class="row"><span>Tuesday – Saturday</span><span class="val">10 AM – 4 PM</span></div>
+                <div class="row"><span>Sunday – Monday</span><span class="val">Closed</span></div>
+                <div class="row"><span>Phone</span><span class="val">254-298-5172</span></div>
+                <div class="row"><span>Email</span><span class="val" style="font-size:0.78rem;">rrhm@templetx.gov</span></div>
+            </div>
+            <div class="info-card">
+                <h3>Admission</h3>
+                <div class="row"><span>Children (ages 0–4)</span><span class="val">FREE</span></div>
+                <div class="row"><span>Children (ages 5–12)</span><span class="val">$2</span></div>
+                <div class="row"><span>Adults (ages 13–59)</span><span class="val">$4</span></div>
+                <div class="row"><span>Seniors (60+)</span><span class="val">$3</span></div>
+                <div class="row"><span>Active Military</span><span class="val">FREE</span></div>
+                <p style="margin-top:1rem;font-size:0.8rem;color:#888;">Members receive free admission year-round. <a href="membership.html" style="color:var(--coral);font-weight:600;">Join today →</a></p>
+                <a href="membership.html" class="btn btn-coral" style="margin-top:1rem;width:100%;text-align:center;display:block;">Buy Tickets Online</a>
+            </div>
+            <div class="info-card">
+                <h3>Getting Here</h3>
+                <p style="margin-bottom:1rem;">We're located in downtown Temple, just off I-35. Look for the historic brick depot — you can't miss it.</p>
+                <div class="row"><span>From I-35 North</span><span class="val">Exit 301</span></div>
+                <div class="row"><span>From I-35 South</span><span class="val">Exit 302</span></div>
+                <div class="row"><span>Amtrak Station</span><span class="val">On-site</span></div>
+                <div class="row"><span>Parking</span><span class="val">Free</span></div>
+                <div class="callout">
+                    <p>Groups of 10 or more? Contact us to arrange advance ticketing and parking.</p>
+                    <a href="group-tours.html" class="btn btn-coral">Group Tours →</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="map-section">
+            <div class="map-icon">📍</div>
+            <span>Interactive Map — 315 W Ave B, Temple, TX 76501</span>
+            <span style="font-size:0.7rem;opacity:0.6;">(Google Maps embed goes here)</span>
+        </div>
+    </div>
+</section>
+
+<section class="tour-section" id="tour">
+    <div class="section-inner">
+        <div class="tour-grid">
+            <div class="tour-text">
+                <p class="section-label on-dark">Virtual Experience</p>
+                <h2 class="section-heading light">Explore the Depot in 3D</h2>
+                <div class="divider"></div>
+                <p>Can't make it to Temple in person? Our immersive Matterport 3D virtual tour lets you step inside the historic 1911 Santa Fe Depot from anywhere in the world.</p>
+                <p>Walk the second-floor galleries, examine the permanent collection, explore the rolling stock on the grounds, and get a feel for the scale and grandeur of the restored depot — all from your screen.</p>
+                <a href="#" class="btn btn-coral">Launch Full Virtual Tour</a>
+            </div>
+            <div class="tour-embed" id="tour-embed">
+                <div class="t-icon">🚂</div>
+                <span>3D Tour Embed</span>
+                <span style="font-size:0.65rem;">(Matterport iframe goes here)</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="access-section">
+    <div class="section-inner">
+        <p class="section-label">Accessibility & Amenities</p>
+        <h2 class="section-heading">We Welcome Everyone</h2>
+        <div class="access-grid">
+            <div class="access-item">
+                <div class="a-icon">♿</div>
+                <h4>Accessible Entrance</h4>
+                <p>The depot is fully ADA accessible with ramp entry, elevators, and accessible restrooms on both floors.</p>
+            </div>
+            <div class="access-item">
+                <div class="a-icon">🎒</div>
+                <h4>Family Friendly</h4>
+                <p>Interactive stations throughout the museum are designed for children. Strollers are welcome inside the galleries.</p>
+            </div>
+            <div class="access-item">
+                <div class="a-icon">🛍️</div>
+                <h4>Gift Shop</h4>
+                <p>Members receive 15–20% off all gift shop purchases. Find books, prints, branded items, and unique railroad keepsakes.</p>
+            </div>
+            <div class="access-item">
+                <div class="a-icon">📸</div>
+                <h4>Photography</h4>
+                <p>Personal photography is welcome throughout the museum and grounds. Please ask staff about photography for commercial use.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <div class="footer-grid">
+        <div class="footer-brand">
+            <img src="images/logo.png" alt="Temple Railroad & Heritage Museum">
+            <p>Housed in the historic 1911 Santa Fe Depot, the museum preserves the railroad heritage and community history of Temple, Texas and all of Central Texas.</p>
+        </div>
+        <div class="footer-col"><h4>Visit</h4><ul><li>315 W Ave B</li><li>Temple, TX 76501</li><li>254-298-5172</li><li><a href="mailto:rrhm@templetx.gov">rrhm@templetx.gov</a></li><li style="margin-top:0.5rem;">Tue – Sat: 10 AM – 4 PM</li></ul></div>
+        <div class="footer-col"><h4>Explore</h4><ul><li><a href="exhibits.html">Current Exhibits</a></li><li><a href="visit.html">Plan Your Visit</a></li><li><a href="visit.html#tour">3D Virtual Tour</a></li><li><a href="events.html">Events Calendar</a></li><li><a href="group-tours.html">School Groups</a></li><li><a href="about.html">Our Story</a></li></ul></div>
+        <div class="footer-col"><h4>Get Involved</h4><ul><li><a href="membership.html">Membership</a></li><li><a href="index.html#donate">Donate</a></li><li><a href="events.html#volunteer">Volunteer</a></li><li><a href="rentals.html">Rent Our Space</a></li><li><a href="index.html#newsletter">Newsletter</a></li><li><a href="https://facebook.com/templerrhm/" target="_blank">Facebook</a></li></ul></div>
+    </div>
+    <div class="footer-bottom">
+        <span>© 2026 Temple Railroad & Heritage Museum. All rights reserved.</span>
+        <span>Temple, Texas &nbsp;·&nbsp; Est. 1881</span>
+    </div>
+</footer>
+</body>
+</html>

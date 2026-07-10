@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Membership | Temple Railroad & Heritage Museum</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .membership-main { padding: 5.5rem 2rem; background: var(--teal); }
+        .membership-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 1rem; margin-top: 2.5rem; }
+        .member-card { background: var(--teal-mid); padding: 2rem 1.25rem; border-top: 3px solid rgba(255,255,255,0.1); text-align: center; transition: background 0.2s; position: relative; }
+        .member-card.featured { background: rgba(224,88,53,0.15); border-top: 3px solid var(--coral); }
+        .member-card.featured::before { content: 'Most Popular'; position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: var(--coral); color: #fff; font-size: 0.58rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; padding: 0.2rem 0.7rem; white-space: nowrap; }
+        .member-card:hover { background: var(--teal-light); }
+        .tier-name { font-size: 0.65rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--coral); font-weight: 700; margin-bottom: 0.8rem; }
+        .tier-price { font-family: var(--serif); font-size: 2.2rem; color: #fff; font-weight: bold; line-height: 1; }
+        .tier-price span { font-size: 0.9rem; opacity: 0.5; }
+        .tier-people { font-size: 0.72rem; color: rgba(255,255,255,0.4); margin: 0.4rem 0 1.3rem; }
+        .tier-perks { list-style: none; text-align: left; margin-bottom: 1.5rem; }
+        .tier-perks li { font-size: 0.78rem; color: rgba(255,255,255,0.65); padding: 0.35rem 0; border-bottom: 1px solid rgba(255,255,255,0.07); display: flex; align-items: flex-start; gap: 0.4rem; line-height: 1.4; }
+        .tier-perks li::before { content: '✓'; color: var(--coral); font-size: 0.7rem; flex-shrink: 0; margin-top: 0.1rem; }
+        .member-card .btn { width: 100%; text-align: center; display: block; }
+
+        .benefits-section { padding: 5rem 2rem; background: var(--cream); }
+        .benefits-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin-top: 2.5rem; }
+        .benefit-item { padding: 2rem; background: #fff; border-top: 3px solid var(--coral); }
+        .benefit-item .b-icon { font-size: 2rem; margin-bottom: 0.75rem; }
+        .benefit-item h3 { font-family: var(--serif); font-size: 1.05rem; color: var(--teal); margin-bottom: 0.5rem; }
+        .benefit-item p { font-size: 0.85rem; color: #666; line-height: 1.65; }
+
+        .narm-section { padding: 4rem 2rem; background: var(--cream-alt); }
+        .narm-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 4rem; align-items: center; }
+        .narm-text p { font-size: 0.97rem; line-height: 1.85; color: #3a3a3a; margin-bottom: 1.2rem; }
+        .narm-badge { background: var(--teal); padding: 2.5rem; text-align: center; }
+        .narm-badge h3 { font-family: var(--serif); color: #fff; font-size: 1.5rem; margin-bottom: 0.5rem; }
+        .narm-badge p { color: rgba(255,255,255,0.65); font-size: 0.85rem; line-height: 1.6; }
+
+        .faq-section { padding: 5rem 2rem; background: var(--cream); }
+        .faq-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 2.5rem; }
+        .faq-item { background: #fff; padding: 1.5rem; border-left: 3px solid var(--coral); }
+        .faq-item h4 { font-family: var(--serif); font-size: 1rem; color: var(--teal); margin-bottom: 0.5rem; }
+        .faq-item p { font-size: 0.85rem; color: #666; line-height: 1.65; }
+    </style>
+</head>
+<body>
+
+<nav>
+    <a href="index.html" class="nav-logo">
+        <img src="images/logo.png" alt="Temple Railroad & Heritage Museum">
+        <div class="nav-logo-text">
+            <span class="name">Temple Railroad</span>
+            <span class="sub">& Heritage Museum</span>
+        </div>
+    </a>
+    <ul class="nav-links">
+        <li class="has-dropdown"><a href="visit.html">Visit</a>
+            <ul class="dropdown-menu">
+                <li><a href="visit.html">Plan Your Visit</a></li>
+                <li><a href="visit.html#tour">3D Virtual Tour</a></li>
+                <li><a href="group-tours.html">Group Tours</a></li>
+            </ul>
+        </li>
+        <li class="has-dropdown"><a href="exhibits.html">Exhibits</a>
+            <ul class="dropdown-menu">
+                <li><a href="exhibits.html">Current Exhibits</a></li>
+                <li><a href="exhibits.html#upcoming">Upcoming</a></li>
+                <li><a href="exhibits.html#permanent">Permanent Collection</a></li>
+            </ul>
+        </li>
+        <li><a href="about.html">Our Story</a></li>
+        <li><a href="events.html">Events & Programs</a></li>
+        <li class="has-dropdown"><a href="membership.html">Get Involved</a>
+            <ul class="dropdown-menu">
+                <li><a href="membership.html">Become a Member</a></li>
+                <li><a href="index.html#donate">Donate</a></li>
+                <li><a href="events.html#volunteer">Volunteer</a></li>
+                <li><a href="index.html#newsletter">Newsletter</a></li>
+            </ul>
+        </li>
+        <li><a href="rentals.html">Rent Our Space</a></li>
+    </ul>
+    <a href="visit.html" class="btn btn-coral">Buy Tickets</a>
+</nav>
+
+<div class="breadcrumb">
+    <div class="section-inner"><a href="index.html">Home</a><span>›</span><span>Membership</span></div>
+</div>
+
+<div class="page-hero">
+    <div class="section-inner">
+        <p class="section-label">Join the Journey</p>
+        <h1>Become a Member</h1>
+        <p class="sub">Your membership is more than a ticket — it's a commitment to preserving the history of the railroad that built Temple. All memberships run May 2025 through April 2026.</p>
+    </div>
+</div>
+
+<section class="membership-main">
+    <div class="section-inner">
+        <p class="section-label on-dark">Choose Your Tier</p>
+        <h2 class="section-heading light">Membership Levels</h2>
+        <p style="color:rgba(255,255,255,0.58);max-width:600px;line-height:1.75;font-size:0.93rem;">Every membership level includes free museum admission, access to members-only events, and early notifications about upcoming exhibits and programs.</p>
+        <div class="membership-grid">
+            <div class="member-card">
+                <p class="tier-name">Individual</p>
+                <div class="tier-price">$40<span>/yr</span></div>
+                <p class="tier-people">1 person</p>
+                <ul class="tier-perks">
+                    <li>Free museum admission</li>
+                    <li>15% gift shop discount</li>
+                    <li>Members-only events</li>
+                    <li>Early event notifications</li>
+                    <li>Canvas tote bag</li>
+                    <li>Member sticker</li>
+                    <li>Free Gallery Night admission</li>
+                </ul>
+                <a href="#" class="btn btn-outline-white">Join Now</a>
+            </div>
+            <div class="member-card">
+                <p class="tier-name">Dual</p>
+                <div class="tier-price">$70<span>/yr</span></div>
+                <p class="tier-people">2 people</p>
+                <ul class="tier-perks">
+                    <li>Free admission for 2</li>
+                    <li>15% gift shop discount</li>
+                    <li>Members-only events</li>
+                    <li>Early event notifications</li>
+                    <li>Canvas tote bag</li>
+                    <li>2 member stickers</li>
+                    <li>Free Gallery Night admission</li>
+                </ul>
+                <a href="#" class="btn btn-outline-white">Join Now</a>
+            </div>
+            <div class="member-card featured">
+                <p class="tier-name">Family</p>
+                <div class="tier-price">$125<span>/yr</span></div>
+                <p class="tier-people">Up to 5 people</p>
+                <ul class="tier-perks">
+                    <li>Free admission for 5</li>
+                    <li>20% gift shop discount</li>
+                    <li>NARM reciprocal access</li>
+                    <li>Up to 4 conductor hats</li>
+                    <li>Members-only events</li>
+                    <li>Early event notifications</li>
+                    <li>Free Gallery Night admission</li>
+                </ul>
+                <a href="#" class="btn btn-coral">Join Now</a>
+            </div>
+            <div class="member-card">
+                <p class="tier-name">Engineer</p>
+                <div class="tier-price">$250<span>/yr</span></div>
+                <p class="tier-people">Up to 7 people</p>
+                <ul class="tier-perks">
+                    <li>Free admission for 7</li>
+                    <li>NARM reciprocal access</li>
+                    <li>4 Train Day tickets</li>
+                    <li>Branded mugs & tumblers</li>
+                    <li>20% gift shop discount</li>
+                    <li>Members-only events</li>
+                    <li>Free Gallery Night admission</li>
+                </ul>
+                <a href="#" class="btn btn-outline-white">Join Now</a>
+            </div>
+            <div class="member-card">
+                <p class="tier-name">Superintendent</p>
+                <div class="tier-price">$500<span>/yr</span></div>
+                <p class="tier-people">Up to 7 people</p>
+                <ul class="tier-perks">
+                    <li>All Engineer benefits</li>
+                    <li>3-hour caboose rental (free)</li>
+                    <li>2 comp. event admissions</li>
+                    <li>Museum recognition</li>
+                    <li>NARM reciprocal access</li>
+                    <li>Free Gallery Night admission</li>
+                </ul>
+                <a href="#" class="btn btn-outline-white">Join Now</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="benefits-section">
+    <div class="section-inner">
+        <p class="section-label">Why Join?</p>
+        <h2 class="section-heading">More Than a Discount Card</h2>
+        <div class="benefits-grid">
+            <div class="benefit-item">
+                <div class="b-icon">🎟️</div>
+                <h3>Unlimited Free Admission</h3>
+                <p>Visit as many times as you like, all year long. Bring the family, bring out-of-town guests — your membership covers you every time.</p>
+            </div>
+            <div class="benefit-item">
+                <div class="b-icon">🌙</div>
+                <h3>Members-Only Events</h3>
+                <p>First Fridays, exclusive Gallery Nights, curator talks, and special previews — events that only members get to experience.</p>
+            </div>
+            <div class="benefit-item">
+                <div class="b-icon">🛍️</div>
+                <h3>Gift Shop Discounts</h3>
+                <p>Save 15–20% on every purchase in the museum gift shop, including books, prints, and one-of-a-kind railroad keepsakes.</p>
+            </div>
+            <div class="benefit-item">
+                <div class="b-icon">🏛️</div>
+                <h3>NARM Reciprocal Access</h3>
+                <p>Family and above members gain access to hundreds of museums across North America through the NARM reciprocal network.</p>
+            </div>
+            <div class="benefit-item">
+                <div class="b-icon">📬</div>
+                <h3>Early Notifications</h3>
+                <p>Be the first to know about new exhibits, upcoming events, and special programming before the general public.</p>
+            </div>
+            <div class="benefit-item">
+                <div class="b-icon">🚞</div>
+                <h3>Preserve History</h3>
+                <p>Your membership directly funds the preservation of Temple's irreplaceable railroad archives, exhibits, and the historic Santa Fe Depot.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="narm-section">
+    <div class="section-inner">
+        <div class="narm-grid">
+            <div class="narm-text">
+                <p class="section-label">For Family, Engineer & Superintendent Members</p>
+                <h2 class="section-heading">NARM Reciprocal Benefits</h2>
+                <div class="divider"></div>
+                <p>Family-level members and above gain reciprocal access to hundreds of museums across the United States, Canada, and beyond through the North American Reciprocal Museum (NARM) Association.</p>
+                <p>One Temple Railroad membership can open doors at science centers, art museums, children's museums, botanical gardens, and more — wherever you travel. It's one of the most overlooked benefits of membership.</p>
+            </div>
+            <div class="narm-badge">
+                <h3>NARM Member</h3>
+                <p>Access to hundreds of museums across North America — included with Family, Engineer, and Superintendent memberships.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="faq-section">
+    <div class="section-inner">
+        <p class="section-label">Questions</p>
+        <h2 class="section-heading">Membership FAQ</h2>
+        <div class="faq-grid">
+            <div class="faq-item">
+                <h4>When does my membership start?</h4>
+                <p>Current memberships run May 2025 through April 2026. New memberships purchased mid-cycle begin immediately and run through April 2026.</p>
+            </div>
+            <div class="faq-item">
+                <h4>Can I give a membership as a gift?</h4>
+                <p>Absolutely. Gift memberships make wonderful presents for history lovers, families with children, and anyone who loves trains. Contact us to set one up.</p>
+            </div>
+            <div class="faq-item">
+                <h4>What is NARM access?</h4>
+                <p>NARM (North American Reciprocal Museum) is a network of hundreds of museums that offer free or discounted admission to members of participating institutions. Family-level and above are included.</p>
+            </div>
+            <div class="faq-item">
+                <h4>How do I use my caboose rental (Superintendent)?</h4>
+                <p>Contact the museum at 254-298-5172 to schedule your complimentary 3-hour caboose rental. Subject to availability. Great for private events and photos.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <div class="footer-grid">
+        <div class="footer-brand">
+            <img src="images/logo.png" alt="Temple Railroad & Heritage Museum">
+            <p>Housed in the historic 1911 Santa Fe Depot, the museum preserves the railroad heritage and community history of Temple, Texas and all of Central Texas.</p>
+        </div>
+        <div class="footer-col"><h4>Visit</h4><ul><li>315 W Ave B</li><li>Temple, TX 76501</li><li>254-298-5172</li><li><a href="mailto:rrhm@templetx.gov">rrhm@templetx.gov</a></li><li style="margin-top:0.5rem;">Tue – Sat: 10 AM – 4 PM</li></ul></div>
+        <div class="footer-col"><h4>Explore</h4><ul><li><a href="exhibits.html">Current Exhibits</a></li><li><a href="visit.html">Plan Your Visit</a></li><li><a href="visit.html#tour">3D Virtual Tour</a></li><li><a href="events.html">Events Calendar</a></li><li><a href="group-tours.html">School Groups</a></li><li><a href="about.html">Our Story</a></li></ul></div>
+        <div class="footer-col"><h4>Get Involved</h4><ul><li><a href="membership.html">Membership</a></li><li><a href="index.html#donate">Donate</a></li><li><a href="events.html#volunteer">Volunteer</a></li><li><a href="rentals.html">Rent Our Space</a></li><li><a href="index.html#newsletter">Newsletter</a></li><li><a href="https://facebook.com/templerrhm/" target="_blank">Facebook</a></li></ul></div>
+    </div>
+    <div class="footer-bottom">
+        <span>© 2026 Temple Railroad & Heritage Museum. All rights reserved.</span>
+        <span>Temple, Texas &nbsp;·&nbsp; Est. 1881</span>
+    </div>
+</footer>
+</body>
+</html>

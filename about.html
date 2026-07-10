@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Story | Temple Railroad & Heritage Museum</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* ── MISSION BAND ───────────────── */
+        .mission-band {
+            background: var(--teal);
+            padding: 4rem 2rem;
+        }
+        .mission-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+        .mission-card {
+            border-left: 3px solid var(--coral);
+            padding-left: 1.5rem;
+        }
+        .mission-card h3 {
+            font-family: var(--serif);
+            font-size: 1.1rem;
+            color: #fff;
+            margin-bottom: 0.6rem;
+        }
+        .mission-card p { font-size: 0.88rem; color: rgba(255,255,255,0.6); line-height: 1.7; }
+        .mission-card .icon {
+            display: block;
+            width: 36px;
+            height: 3px;
+            background: var(--coral);
+            margin-bottom: 1.25rem;
+            border-radius: 2px;
+        }
+        .v-icon {
+            display: block;
+            width: 36px;
+            height: 3px;
+            background: var(--coral);
+            margin: 0 auto 1.25rem;
+            border-radius: 2px;
+        }
+
+        /* ── FOUNDING STORY ─────────────── */
+        .founding { padding: 5.5rem 2rem; background: var(--cream); }
+        .founding-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+            align-items: start;
+        }
+        .founding-text p {
+            font-size: 0.97rem;
+            line-height: 1.88;
+            color: #3a3a3a;
+            margin-bottom: 1.25rem;
+        }
+        .founding-text blockquote {
+            border-left: 3px solid var(--coral);
+            padding: 0.75rem 1.5rem;
+            font-family: var(--serif);
+            font-style: italic;
+            font-size: 1.1rem;
+            color: var(--teal);
+            margin: 1.5rem 0;
+            background: var(--cream-alt);
+        }
+        .founding-photos {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+        .founding-photos img {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+        }
+        .founding-photos img:last-child { height: 200px; }
+        .photo-caption {
+            font-size: 0.75rem;
+            color: #888;
+            letter-spacing: 0.06em;
+            text-align: right;
+            margin-top: -1rem;
+        }
+
+        /* ── TIMELINE ───────────────────── */
+        .timeline-section {
+            padding: 5.5rem 2rem 6rem;
+            background: var(--teal);
+            overflow: hidden;
+        }
+        .timeline-section .section-heading { color: #fff; margin-bottom: 0.75rem; }
+        .timeline-section > .section-inner > p {
+            color: rgba(255,255,255,0.6);
+            font-size: 0.93rem;
+            margin-bottom: 3.5rem;
+            line-height: 1.7;
+        }
+
+        /* Detail panel */
+        .timeline-detail {
+            background: rgba(0,0,0,0.25);
+            border-left: 4px solid var(--coral);
+            padding: 1.75rem 2rem;
+            margin-bottom: 3rem;
+            display: flex;
+            gap: 2rem;
+            align-items: flex-start;
+            min-height: 120px;
+            transition: opacity 0.3s;
+        }
+        .detail-year-badge {
+            font-family: var(--serif);
+            font-size: 2.8rem;
+            font-weight: bold;
+            color: var(--coral);
+            line-height: 1;
+            flex-shrink: 0;
+            min-width: 100px;
+        }
+        .detail-text h3 {
+            font-family: var(--serif);
+            font-size: 1.3rem;
+            color: #fff;
+            margin-bottom: 0.5rem;
+        }
+        .detail-text p { font-size: 0.88rem; color: rgba(255,255,255,0.65); line-height: 1.75; }
+
+        /* Track */
+        .track-wrap {
+            position: relative;
+            overflow-x: auto;
+            padding-bottom: 1rem;
+        }
+        .track-wrap::-webkit-scrollbar { height: 4px; }
+        .track-wrap::-webkit-scrollbar-track { background: rgba(255,255,255,0.05); }
+        .track-wrap::-webkit-scrollbar-thumb { background: var(--coral); border-radius: 2px; }
+
+        .track-inner { min-width: 900px; padding: 2rem 2rem 1rem; position: relative; }
+
+        /* Rails (the two horizontal bars) */
+        .track-rails {
+            position: relative;
+            height: 50px;
+            margin: 0 30px;
+        }
+        .rail {
+            position: absolute;
+            left: 0; right: 0;
+            height: 6px;
+            background: #7a5c2e;
+            border-radius: 3px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.4);
+        }
+        .rail.top { top: 0; }
+        .rail.bottom { bottom: 0; }
+        .ties-container {
+            position: absolute;
+            top: -8px; bottom: -8px; left: 0; right: 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .tie {
+            width: 14px;
+            height: 66px;
+            background: #5c4520;
+            border-radius: 2px;
+        }
+
+        /* Station dots */
+        .stations-row {
+            display: flex;
+            align-items: flex-end;
+            position: relative;
+            margin: 0 30px;
+            padding-bottom: 12px;
+        }
+        /* This overlay sits on the track */
+        .stations-on-track {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 0 30px;
+            position: absolute;
+            left: 30px; right: 30px;
+            top: 50%;
+            transform: translateY(0px);
+            pointer-events: none;
+        }
+
+        /* Stations positioned relative to track */
+        .timeline-stations {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: -25px 30px 0;
+            position: relative;
+            z-index: 2;
+        }
+        .timeline-station {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            cursor: pointer;
+            flex: 1;
+        }
+        .station-dot {
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background: #7a5c2e;
+            border: 3px solid rgba(255,255,255,0.3);
+            transition: all 0.25s;
+            position: relative;
+            z-index: 3;
+        }
+        .timeline-station:hover .station-dot,
+        .timeline-station.active .station-dot {
+            background: var(--coral);
+            border-color: #fff;
+            transform: scale(1.4);
+            box-shadow: 0 0 12px rgba(224,88,53,0.6);
+        }
+        .station-year {
+            font-size: 0.72rem;
+            font-weight: 700;
+            color: rgba(255,255,255,0.45);
+            letter-spacing: 0.08em;
+            margin-top: 1rem;
+            text-align: center;
+            transition: color 0.2s;
+            white-space: nowrap;
+        }
+        .timeline-station.active .station-year,
+        .timeline-station:hover .station-year {
+            color: var(--coral);
+        }
+        .station-label {
+            font-size: 0.65rem;
+            color: rgba(255,255,255,0.3);
+            letter-spacing: 0.04em;
+            text-align: center;
+            margin-top: 0.2rem;
+            max-width: 90px;
+            line-height: 1.3;
+            transition: color 0.2s;
+        }
+        .timeline-station.active .station-label,
+        .timeline-station:hover .station-label { color: rgba(255,255,255,0.7); }
+
+        .timeline-hint {
+            text-align: center;
+            font-size: 0.7rem;
+            color: rgba(255,255,255,0.3);
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            margin-top: 2rem;
+        }
+
+        /* ── DEPOT SECTION ──────────────── */
+        .depot-section { padding: 5.5rem 2rem; background: var(--cream-alt); }
+        .depot-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4.5rem;
+            align-items: center;
+        }
+        .depot-photo img { width: 100%; height: 460px; object-fit: cover; }
+        .depot-text p { font-size: 0.97rem; line-height: 1.85; color: #3a3a3a; margin-bottom: 1.25rem; }
+        .depot-stats {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+        .depot-stat {
+            background: var(--teal);
+            padding: 1.25rem;
+            text-align: center;
+        }
+        .depot-stat .num { font-family: var(--serif); font-size: 1.8rem; color: var(--coral); font-weight: bold; }
+        .depot-stat .lbl { font-size: 0.72rem; color: rgba(255,255,255,0.6); letter-spacing: 0.1em; text-transform: uppercase; margin-top: 0.2rem; }
+
+        /* ── VALUES ────────────────────── */
+        .values-section { padding: 4rem 2rem; background: var(--cream); }
+        .values-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 1.5rem; }
+        .value-item { text-align: center; padding: 1.5rem 1rem; }
+        .value-item .v-icon { font-size: 1.75rem; margin-bottom: 0.75rem; }
+        .value-item h4 { font-family: var(--serif); font-size: 0.95rem; color: var(--teal); margin-bottom: 0.3rem; }
+        .value-item p { font-size: 0.78rem; color: #666; line-height: 1.5; }
+    </style>
+</head>
+<body>
+
+<nav>
+    <a href="index.html" class="nav-logo">
+        <img src="images/logo.png" alt="Temple Railroad & Heritage Museum">
+        <div class="nav-logo-text">
+            <span class="name">Temple Railroad</span>
+            <span class="sub">& Heritage Museum</span>
+        </div>
+    </a>
+    <ul class="nav-links">
+        <li class="has-dropdown"><a href="visit.html">Visit</a>
+            <ul class="dropdown-menu">
+                <li><a href="visit.html">Plan Your Visit</a></li>
+                <li><a href="visit.html#tour">3D Virtual Tour</a></li>
+                <li><a href="group-tours.html">Group Tours</a></li>
+            </ul>
+        </li>
+        <li class="has-dropdown"><a href="exhibits.html">Exhibits</a>
+            <ul class="dropdown-menu">
+                <li><a href="exhibits.html">Current Exhibits</a></li>
+                <li><a href="exhibits.html#upcoming">Upcoming</a></li>
+                <li><a href="exhibits.html#permanent">Permanent Collection</a></li>
+            </ul>
+        </li>
+        <li><a href="about.html">Our Story</a></li>
+        <li><a href="events.html">Events & Programs</a></li>
+        <li class="has-dropdown"><a href="membership.html">Get Involved</a>
+            <ul class="dropdown-menu">
+                <li><a href="membership.html">Become a Member</a></li>
+                <li><a href="index.html#donate">Donate</a></li>
+                <li><a href="events.html#volunteer">Volunteer</a></li>
+                <li><a href="index.html#newsletter">Newsletter</a></li>
+            </ul>
+        </li>
+        <li><a href="rentals.html">Rent Our Space</a></li>
+    </ul>
+    <a href="visit.html" class="btn btn-coral">Buy Tickets</a>
+</nav>
+
+<div class="breadcrumb">
+    <div class="section-inner">
+        <a href="index.html">Home</a>
+        <span>›</span>
+        <span>Our Story</span>
+    </div>
+</div>
+
+<div class="page-hero">
+    <div class="section-inner">
+        <p class="section-label">Our Story</p>
+        <h1>The City the Railroad Built</h1>
+        <p class="sub">For more than 50 years, the Temple Railroad & Heritage Museum has preserved the rich history of how one railroad changed Central Texas forever — and built a city in a single afternoon.</p>
+    </div>
+</div>
+
+<!-- MISSION -->
+<section class="mission-band">
+    <div class="section-inner">
+        <div class="mission-grid">
+            <div class="mission-card">
+                <span class="icon"></span>
+                <h3>Our Mission</h3>
+                <p>To inspire visitors to discover our rich railroad heritage and the history that shaped our community — and to preserve it for generations to come.</p>
+            </div>
+            <div class="mission-card">
+                <span class="icon"></span>
+                <h3>Our Vision</h3>
+                <p>To be the educational destination for our community to explore its past and present, and a national research resource for Santa Fe Railroad and Texas railroad history.</p>
+            </div>
+            <div class="mission-card">
+                <span class="icon"></span>
+                <h3>Our Values</h3>
+                <p>We are guided by Education, Excellence, Integrity, Service, and Stewardship — the same values that drove the railroad workers who built this region.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FOUNDING STORY -->
+<section class="founding">
+    <div class="section-inner">
+        <div class="founding-grid">
+            <div class="founding-text">
+                <p class="section-label">The Founding</p>
+                <h2 class="section-heading">A City Born at a Junction</h2>
+                <div class="divider"></div>
+                <p>On June 29, 1881, two major railways — the Gulf, Colorado & Santa Fe Railway and the Missouri-Kansas-Texas Railroad (known as "The Katy") — converged at what became Temple Junction. Through an auction of 157 business lots and 28 residential lots, a new settlement took shape on the Texas prairie, named in honor of Bernard Moore Temple, the Santa Fe Railway's chief engineer.</p>
+                <blockquote>"Temple sprang up almost overnight — within just three years, the frontier settlement had 3,000 residents, three churches, a school, two banks, and two newspapers."</blockquote>
+                <p>The railroad didn't just found Temple. It shaped every aspect of life here. In 1891, the Gulf, Colorado & Santa Fe opened Temple's first hospital specifically to care for its workers — the same institution that would grow into today's Baylor Scott & White Health, one of the largest medical systems in Texas.</p>
+                <p>Temple grew quickly into one of the region's most vital rail hubs. Early residents called it "Mudtown" for its unpaved streets — but no one called it quiet. The trains never stopped coming, and neither did the people who followed them.</p>
+                <a href="index.html#donate" class="btn btn-coral" style="margin-top:0.5rem;">Support This History</a>
+            </div>
+            <div class="founding-photos">
+                <img src="images/historic-postcard.jpg" alt="Santa Fe Passenger Station, Temple, Texas — early 1900s postcard">
+                <p class="photo-caption">Santa Fe Passenger Station, Temple, Tex. — Courtesy of the Fred M. and Dale M. Springer Archives.</p>
+                <img src="images/kids-lego-activity.jpg" alt="Children at an interactive building activity inside the museum">
+                <p class="photo-caption">Hands-on history for every generation.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- INTERACTIVE TIMELINE -->
+<section class="timeline-section" id="timeline">
+    <div class="section-inner">
+        <p class="section-label on-dark">A Journey Through Time</p>
+        <h2 class="section-heading">140 Years of History</h2>
+        <p>From Temple's founding in 1881 to the establishment of the Foundation in 2012 — click any station to explore the key moments that shaped this museum and the city it calls home.</p>
+
+        <div class="timeline-detail" id="timeline-detail">
+            <div class="detail-year-badge" id="detail-year">1881</div>
+            <div class="detail-text">
+                <h3 id="detail-title">Temple Is Founded</h3>
+                <p id="detail-body">On June 29, 1881, two major railways — the Gulf, Colorado & Santa Fe Railway and the Missouri-Kansas-Texas Railroad (known as "The Katy") — converge at Temple Junction. Through an auction of 157 business lots and 28 residential lots, a new settlement is established on the Texas prairie, named in honor of Bernard Moore Temple, the Santa Fe Railway's chief engineer. Within three years, 3,000 people call Temple home.</p>
+            </div>
+        </div>
+
+        <div class="track-wrap">
+            <div class="track-inner">
+                <div class="track-rails">
+                    <div class="rail top"></div>
+                    <div class="ties-container" id="ties"></div>
+                    <div class="rail bottom"></div>
+                </div>
+                <div class="timeline-stations" id="timeline-stations">
+                    <div class="timeline-station active" data-year="1881" data-title="Temple Is Founded" data-body="On June 29, 1881, two major railways — the Gulf, Colorado & Santa Fe Railway and the Missouri-Kansas-Texas Railroad (known as 'The Katy') — converge at Temple Junction. Through an auction of 157 business lots and 28 residential lots, a new settlement is established on the Texas prairie, named in honor of Bernard Moore Temple, the Santa Fe Railway's chief engineer. Within three years, 3,000 people call Temple home.">
+                        <div class="station-dot"></div>
+                        <div class="station-year">1881</div>
+                        <div class="station-label">Temple Founded</div>
+                    </div>
+                    <div class="timeline-station" data-year="1891" data-title="The Railroad Builds Temple's First Hospital" data-body="The Gulf, Colorado & Santa Fe Railway opens Temple's first hospital to care for railroad workers injured on the job. That institution grew into what is now Baylor Scott & White Health — one of the largest medical systems in Texas, still headquartered in Temple today.">
+                        <div class="station-dot"></div>
+                        <div class="station-year">1891</div>
+                        <div class="station-label">First Hospital Opens</div>
+                    </div>
+                    <div class="timeline-station" data-year="1911" data-title="The Santa Fe Depot Is Built" data-body="The Atchison, Topeka and Santa Fe Railway completes its grand Southern Division Headquarters in Temple. The two-story depot — with its distinctive arched windows, red tile roof, and 'T-E-M-P-L-E' spelled out across the facade — becomes a major hub for rail travel throughout Central Texas.">
+                        <div class="station-dot"></div>
+                        <div class="station-year">1911</div>
+                        <div class="station-label">The Depot Built</div>
+                    </div>
+                    <div class="timeline-station" data-year="1973" data-title="The Railroad Museum Is Established" data-body="The Railroad and Pioneer Museum is formally established to collect, preserve, and exhibit the history of the railroads and local history of Central Texas — the foundation of what would become the Temple Railroad & Heritage Museum.">
+                        <div class="station-dot"></div>
+                        <div class="station-year">1973</div>
+                        <div class="station-label">Museum Founded</div>
+                    </div>
+                    <div class="timeline-station" data-year="1995" data-title="The Depot Is Donated" data-body="After years of vacancy, the Atchison, Topeka and Santa Fe Railroad donates the historic 1911 depot building to the City of Temple. A federal transportation grant combined with city funds secures $4 million to begin the restoration.">
+                        <div class="station-dot"></div>
+                        <div class="station-year">1995</div>
+                        <div class="station-label">Depot Donated</div>
+                    </div>
+                    <div class="timeline-station" data-year="2000" data-title="The Restored Depot Reopens" data-body="After years of meticulous restoration, the fully renovated 1911 Santa Fe Depot reopens as the permanent home of the Temple Railroad & Heritage Museum. The $4 million project returns the building to its original grandeur — and gives Temple's founding story a home worthy of it.">
+                        <div class="station-dot"></div>
+                        <div class="station-year">2000</div>
+                        <div class="station-label">Grand Reopening</div>
+                    </div>
+                    <div class="timeline-station" data-year="2012" data-title="The Foundation Board Is Established" data-body="The City of Temple assumes full operational management of the museum. The Railroad and Heritage Museum Foundation Board is established — growing from the museum's original advisory board — to administer the Fred Springer Endowment and raise private funds for projects beyond the museum's operating budget.">
+                        <div class="station-dot"></div>
+                        <div class="station-year">2012</div>
+                        <div class="station-label">Foundation Established</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <p class="timeline-hint">← Click any station to explore · Scroll to see all →</p>
+    </div>
+</section>
+
+<!-- THE DEPOT -->
+<section class="depot-section">
+    <div class="section-inner">
+        <div class="depot-grid">
+            <div class="depot-photo">
+                <img src="images/grounds-caboose.jpg" alt="Historic rolling stock on the museum grounds">
+            </div>
+            <div class="depot-text">
+                <p class="section-label">The Building</p>
+                <h2 class="section-heading">A Landmark Brought Back to Life</h2>
+                <div class="divider"></div>
+                <p>The Santa Fe Depot was completed in 1911 as the Southern Division Headquarters of the Atchison, Topeka and Santa Fe Railway. At its peak, it was one of the most important rail facilities in Central Texas — the place where passengers arrived, workers reported, and the commerce of the region passed through.</p>
+                <p>When the railroad vacated the building in the 1990s, it could have been lost forever. Instead, the people of Temple chose to invest $4 million — combining a federal transportation grant with city funds — to restore it. Construction began in 1999 and the fully restored depot reopened in 2000.</p>
+                <p>Today the depot stands adjacent to an active BNSF and Amtrak rail yard, so visitors can still hear and see trains passing — the same way Temple's first residents did 140 years ago.</p>
+                <div class="depot-stats">
+                    <div class="depot-stat"><div class="num">1911</div><div class="lbl">Year Built</div></div>
+                    <div class="depot-stat"><div class="num">$4M</div><div class="lbl">Restoration Cost</div></div>
+                    <div class="depot-stat"><div class="num">2000</div><div class="lbl">Reopened</div></div>
+                    <div class="depot-stat"><div class="num">2</div><div class="lbl">Stories of Exhibits</div></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- VALUES -->
+<section class="values-section">
+    <div class="section-inner">
+        <p class="section-label" style="text-align:center;">What Guides Us</p>
+        <h2 class="section-heading" style="text-align:center;margin-bottom:2.5rem;">Our Core Values</h2>
+        <div class="values-grid">
+            <div class="value-item">
+                <div class="v-icon"></div>
+                <h4>Education</h4>
+                <p>Every exhibit, program, and tour is an opportunity to learn — for students, families, and lifelong learners alike.</p>
+            </div>
+            <div class="value-item">
+                <div class="v-icon"></div>
+                <h4>Excellence</h4>
+                <p>We hold ourselves to the highest standards in preservation, programming, and the visitor experience.</p>
+            </div>
+            <div class="value-item">
+                <div class="v-icon"></div>
+                <h4>Integrity</h4>
+                <p>We tell history honestly and completely — the hard parts alongside the triumphs — because that is what history deserves.</p>
+            </div>
+            <div class="value-item">
+                <div class="v-icon"></div>
+                <h4>Service</h4>
+                <p>We serve our visitors, our community, and the historical record with equal dedication and care.</p>
+            </div>
+            <div class="value-item">
+                <div class="v-icon"></div>
+                <h4>Stewardship</h4>
+                <p>We are guardians of irreplaceable artifacts, archives, and a building that belongs to the people of Temple.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <div class="footer-grid">
+        <div class="footer-brand">
+            <img src="images/logo.png" alt="Temple Railroad & Heritage Museum">
+            <p>Housed in the historic 1911 Santa Fe Depot, the museum preserves the railroad heritage and community history of Temple, Texas and all of Central Texas.</p>
+        </div>
+        <div class="footer-col">
+            <h4>Visit</h4>
+            <ul>
+                <li>315 W Ave B</li>
+                <li>Temple, TX 76501</li>
+                <li>254-298-5172</li>
+                <li><a href="mailto:rrhm@templetx.gov">rrhm@templetx.gov</a></li>
+                <li style="margin-top:0.5rem;">Tue – Sat: 10 AM – 4 PM</li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4>Explore</h4>
+            <ul>
+                <li><a href="exhibits.html">Current Exhibits</a></li>
+                <li><a href="visit.html">Plan Your Visit</a></li>
+                <li><a href="visit.html#tour">3D Virtual Tour</a></li>
+                <li><a href="events.html">Events Calendar</a></li>
+                <li><a href="group-tours.html">School Groups</a></li>
+                <li><a href="about.html">Our Story</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4>Get Involved</h4>
+            <ul>
+                <li><a href="membership.html">Membership</a></li>
+                <li><a href="index.html#donate">Donate</a></li>
+                <li><a href="events.html#volunteer">Volunteer</a></li>
+                <li><a href="rentals.html">Rent Our Space</a></li>
+                <li><a href="index.html#newsletter">Newsletter</a></li>
+                <li><a href="https://facebook.com/templerrhm/" target="_blank">Facebook</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <span>© 2026 Temple Railroad & Heritage Museum. All rights reserved.</span>
+        <span>Temple, Texas &nbsp;·&nbsp; Est. 1881</span>
+    </div>
+</footer>
+
+<script>
+    // Generate railroad ties
+    const tiesContainer = document.getElementById('ties');
+    const trackInner = document.querySelector('.track-inner');
+    const tieCount = 24;
+    for (let i = 0; i < tieCount; i++) {
+        const tie = document.createElement('div');
+        tie.className = 'tie';
+        tiesContainer.appendChild(tie);
+    }
+
+    // Timeline interactivity
+    const stations = document.querySelectorAll('.timeline-station');
+    const detailYear = document.getElementById('detail-year');
+    const detailTitle = document.getElementById('detail-title');
+    const detailBody = document.getElementById('detail-body');
+
+    stations.forEach(station => {
+        station.addEventListener('click', () => {
+            stations.forEach(s => s.classList.remove('active'));
+            station.classList.add('active');
+            detailYear.textContent = station.dataset.year;
+            detailTitle.textContent = station.dataset.title;
+            detailBody.textContent = station.dataset.body;
+        });
+    });
+</script>
+</body>
+</html>
