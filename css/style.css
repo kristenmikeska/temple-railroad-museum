@@ -316,14 +316,13 @@ nav > .btn {
 
     /* Nav collapses to hamburger */
     .nav-toggle { display: block; }
-
     nav { padding: 0 1.25rem; }
 
-    /* Hide nav links — revealed when .open class added by JS */
+    /* Hide nav links; JS adds .open to reveal */
     .nav-links {
-        display: none !important; /* override base display:flex */
+        display: none !important;
         position: absolute;
-        top: 71px; /* nav height + coral border */
+        top: 71px;
         left: 0; right: 0;
         flex-direction: column;
         align-items: stretch;
@@ -342,11 +341,12 @@ nav > .btn {
         padding: 0.9rem 1.5rem;
     }
 
-    /* Dropdowns become static sub-lists on mobile */
+    /* Dropdowns push content down rather than float over it.
+       Must match base selector specificity (.nav-links .dropdown-menu = 0,2,0) */
     .nav-links li:hover .dropdown-menu { display: none; }
-    .nav-links .has-dropdown.open .dropdown-menu { display: block; }
-    .dropdown-menu {
-        position: static;
+    .nav-links .has-dropdown.open .dropdown-menu { display: block !important; }
+    .nav-links .dropdown-menu {
+        position: static !important;
         box-shadow: none;
         border-top: none;
         border-left: 3px solid var(--coral);
@@ -357,13 +357,13 @@ nav > .btn {
     }
     .has-dropdown > a::after { float: right; margin-top: 0.1rem; }
 
-    /* Hide Buy Tickets in mobile nav (it's in the hamburger menu via nav links) */
     nav > .btn { display: none; }
 
-    /* Footer */
-    .footer-grid { grid-template-columns: 1fr 1fr; gap: 2rem; }
+    /* Footer 2-column */
+    .footer-grid { grid-template-columns: 1fr 1fr !important; gap: 2rem; }
 
-    /* 3-column grids → 2 columns */
+    /* 3-col → 2-col
+       !important needed because page <style> blocks come after this file in cascade */
     .mission-grid,
     .exhibits-grid,
     .events-grid,
@@ -372,15 +372,15 @@ nav > .btn {
     .benefits-grid,
     .programs-grid,
     .fund-grid,
-    .paths-grid { grid-template-columns: 1fr 1fr; }
+    .paths-grid { grid-template-columns: 1fr 1fr !important; }
 
-    /* 5-col membership → 3 */
-    .membership-grid { grid-template-columns: repeat(3, 1fr); }
+    /* 5-col membership → 3-col */
+    .membership-grid { grid-template-columns: repeat(3, 1fr) !important; }
 
-    /* 4-col access → 2 */
-    .access-grid { grid-template-columns: 1fr 1fr; }
+    /* 4-col → 2-col */
+    .access-grid { grid-template-columns: 1fr 1fr !important; }
 
-    /* 2-column content grids → single column */
+    /* 2-col content → single column */
     .founding-grid,
     .perm-grid,
     .tour-grid,
@@ -391,17 +391,17 @@ nav > .btn {
     .endowment-grid,
     .board-grid,
     .form-grid,
-    .foundation-hero .section-inner { grid-template-columns: 1fr; }
+    .foundation-hero .section-inner,
+    .story-grid,
+    .visit-grid { grid-template-columns: 1fr !important; }
 
     .foundation-hero .foundation-hero-badge { margin-top: 0; }
 }
 
 /* ── RESPONSIVE — MOBILE (≤600px) ────────────────────── */
-
-/* ── RESPONSIVE — MOBILE (≤600px) ────────────────────── */
 @media (max-width: 600px) {
 
-    /* All remaining multi-column grids → single column */
+    /* All grids → single column */
     .mission-grid,
     .exhibits-grid,
     .events-grid,
@@ -413,30 +413,25 @@ nav > .btn {
     .paths-grid,
     .faq-grid,
     .access-grid,
-    .footer-grid { grid-template-columns: 1fr; }
+    .footer-grid { grid-template-columns: 1fr !important; }
 
-    /* Membership → 2 columns on phone (still readable) */
-    .membership-grid { grid-template-columns: 1fr 1fr; }
+    /* Membership → 2-col on phone (readable) */
+    .membership-grid { grid-template-columns: 1fr 1fr !important; }
 
-    /* Foundation form rows → single column */
+    /* Foundation form rows → 1-col */
     .tier-select-group,
-    .fnd-form-row,
-    .fnd-form-row { grid-template-columns: 1fr; }
+    .fnd-form-row { grid-template-columns: 1fr !important; }
 
     /* Footer bottom stacks */
     .footer-bottom { flex-direction: column; gap: 0.4rem; text-align: center; }
 
-    /* Page hero tightens */
+    /* Page hero */
     .page-hero { padding: 2.5rem 1.25rem 2rem; }
     .page-hero h1 { font-size: 1.75rem; }
 
-    /* Breadcrumb */
     .breadcrumb { padding: 0.5rem 1.25rem; }
 
-    /* Section padding */
-    .section-inner { padding: 0 0.25rem; }
-
-    /* Buttons full-width on mobile where stacked */
+    /* Buttons go full-width when stacked */
     .path-card .btn,
     .fund-card .btn { width: 100%; text-align: center; display: block; }
 }
