@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Foundation Board | Temple Railroad & Heritage Museum</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* ── FOUNDATION HERO ─── */
+        .foundation-hero { padding: 5rem 2rem; background: var(--teal); border-bottom: 4px solid var(--coral); }
+        .foundation-hero .section-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+        .foundation-hero-text p.section-label { color: var(--coral); }
+        .foundation-hero-text h1 { font-family: var(--serif); font-size: 2.6rem; color: #fff; line-height: 1.2; margin: 0.5rem 0 1rem; }
+        .foundation-hero-text .lead { font-size: 1rem; color: rgba(255,255,255,0.7); line-height: 1.8; max-width: 480px; }
+        .foundation-hero-badge { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.15); padding: 2.5rem; }
+        .foundation-hero-badge h3 { font-family: var(--serif); color: #fff; font-size: 1.1rem; margin-bottom: 0.5rem; }
+        .foundation-hero-badge p { font-size: 0.86rem; color: rgba(255,255,255,0.6); line-height: 1.75; margin-bottom: 1.25rem; }
+        .badge-stat { display: flex; gap: 2rem; margin-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 1.5rem; }
+        .badge-stat-item .number { font-family: var(--serif); font-size: 1.8rem; color: var(--coral); font-weight: bold; }
+        .badge-stat-item .label { font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.45); margin-top: 0.15rem; }
+
+        /* ── ABOUT FOUNDATION ─── */
+        .foundation-about { padding: 5rem 2rem; background: var(--cream); }
+        .about-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 4rem; align-items: start; margin-top: 2.5rem; }
+        .about-body p { font-size: 0.97rem; line-height: 1.9; color: #3a3a3a; margin-bottom: 1.2rem; }
+        .about-sidebar { background: var(--teal); padding: 2rem; }
+        .about-sidebar h4 { font-family: var(--serif); color: #fff; font-size: 1rem; margin-bottom: 1rem; padding-bottom: 0.75rem; border-bottom: 2px solid var(--coral); }
+        .sidebar-item { padding: 0.75rem 0; border-bottom: 1px solid rgba(255,255,255,0.08); }
+        .sidebar-item .s-label { font-size: 0.62rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--coral); font-weight: 700; margin-bottom: 0.2rem; }
+        .sidebar-item .s-val { font-size: 0.88rem; color: rgba(255,255,255,0.75); line-height: 1.5; }
+
+        /* ── WHAT WE FUND ─── */
+        .what-we-fund { padding: 5rem 2rem; background: var(--cream-alt); }
+        .fund-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 2.5rem; }
+        .fund-card { background: #fff; padding: 2rem; border-top: 4px solid var(--coral); }
+        .fund-card .f-num { font-family: var(--serif); font-size: 2.5rem; color: rgba(224,88,53,0.15); font-weight: bold; line-height: 1; margin-bottom: 0.5rem; }
+        .fund-card h3 { font-family: var(--serif); font-size: 1.1rem; color: var(--teal); margin-bottom: 0.6rem; }
+        .fund-card p { font-size: 0.86rem; color: #666; line-height: 1.7; }
+
+        /* ── SUPPORT PATHS — the complex section ─── */
+        .support-paths { padding: 5rem 2rem; background: var(--teal); }
+        .paths-intro { max-width: 620px; margin-bottom: 3rem; }
+        .paths-intro p { font-size: 0.97rem; color: rgba(255,255,255,0.65); line-height: 1.8; margin-top: 0.75rem; }
+        .paths-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+        .path-card { background: var(--teal-mid); padding: 2rem; border-top: 4px solid rgba(255,255,255,0.15); position: relative; }
+        .path-card.highlight { background: rgba(224,88,53,0.12); border-top: 4px solid var(--coral); }
+        .path-badge { display: inline-block; font-size: 0.58rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; padding: 0.2rem 0.6rem; background: var(--coral); color: #fff; margin-bottom: 1rem; }
+        .path-badge.badge-teal { background: rgba(255,255,255,0.15); color: rgba(255,255,255,0.75); }
+        .path-card h3 { font-family: var(--serif); color: #fff; font-size: 1.15rem; margin-bottom: 0.4rem; }
+        .path-card .path-who { font-size: 0.75rem; color: rgba(255,255,255,0.45); margin-bottom: 1rem; font-style: italic; }
+        .path-card p { font-size: 0.86rem; color: rgba(255,255,255,0.62); line-height: 1.7; margin-bottom: 1.25rem; }
+        .path-perks { list-style: none; margin-bottom: 1.5rem; }
+        .path-perks li { font-size: 0.8rem; color: rgba(255,255,255,0.7); padding: 0.3rem 0; border-bottom: 1px solid rgba(255,255,255,0.07); display: flex; gap: 0.5rem; align-items: flex-start; line-height: 1.4; }
+        .path-perks li::before { content: '–'; color: var(--coral); flex-shrink: 0; }
+        .path-divider { grid-column: 1 / -1; border-top: 1px solid rgba(255,255,255,0.08); margin: 0.5rem 0; }
+        .clarifier { background: rgba(0,0,0,0.2); border-left: 3px solid var(--coral); padding: 1.25rem 1.5rem; margin-top: 2rem; }
+        .clarifier p { font-size: 0.84rem; color: rgba(255,255,255,0.62); line-height: 1.75; }
+        .clarifier strong { color: rgba(255,255,255,0.9); }
+
+        /* ── SUPPORTING MEMBER FORM ─── */
+        .supporting-form { padding: 5rem 2rem; background: var(--cream); }
+        .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; margin-top: 2.5rem; }
+        .form-side p { font-size: 0.97rem; line-height: 1.85; color: #3a3a3a; margin-bottom: 1.1rem; }
+        .tier-select-group { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.75rem; margin: 1.5rem 0; }
+        .tier-option { border: 2px solid #ddd; padding: 1rem; cursor: pointer; transition: all 0.2s; text-align: center; position: relative; }
+        .tier-option input[type="radio"] { position: absolute; opacity: 0; }
+        .tier-option:has(input:checked),
+        .tier-option.selected { border-color: var(--coral); background: rgba(224,88,53,0.06); }
+        .tier-option .t-name { font-size: 0.65rem; letter-spacing: 0.18em; text-transform: uppercase; font-weight: 700; color: var(--coral); margin-bottom: 0.3rem; }
+        .tier-option .t-amount { font-family: var(--serif); font-size: 1.5rem; color: var(--teal); font-weight: bold; }
+        .tier-option .t-desc { font-size: 0.7rem; color: #888; margin-top: 0.3rem; line-height: 1.4; }
+        .foundation-form-box { background: var(--teal); padding: 2.5rem; }
+        .foundation-form-box h3 { font-family: var(--serif); color: #fff; font-size: 1.2rem; margin-bottom: 0.4rem; }
+        .foundation-form-box .form-sub { font-size: 0.83rem; color: rgba(255,255,255,0.5); margin-bottom: 1.75rem; }
+        .fnd-form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem; }
+        .fnd-field { display: flex; flex-direction: column; gap: 0.35rem; margin-bottom: 1rem; }
+        .fnd-field label { font-size: 0.65rem; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.5); font-weight: 700; }
+        .fnd-field input, .fnd-field select, .fnd-field textarea { background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15); color: #fff; padding: 0.65rem 0.85rem; font-size: 0.88rem; font-family: var(--sans); width: 100%; border-radius: 2px; }
+        .fnd-field input::placeholder, .fnd-field textarea::placeholder { color: rgba(255,255,255,0.3); }
+        .fnd-field select option { background: var(--teal); color: #fff; }
+        .fnd-field textarea { resize: vertical; min-height: 90px; }
+
+        /* ── ENDOWMENT ─── */
+        .endowment-section { padding: 5rem 2rem; background: var(--teal); }
+        .endowment-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; margin-top: 2.5rem; }
+        .endowment-text p { font-size: 0.97rem; color: rgba(255,255,255,0.7); line-height: 1.85; margin-bottom: 1.1rem; }
+        .endowment-box { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); padding: 2rem; }
+        .endowment-box h4 { font-family: var(--serif); color: #fff; font-size: 1rem; margin-bottom: 1rem; padding-bottom: 0.75rem; border-bottom: 2px solid var(--coral); }
+        .endow-option { padding: 1rem 0; border-bottom: 1px solid rgba(255,255,255,0.08); }
+        .endow-option:last-child { border-bottom: none; }
+        .endow-option .e-title { font-size: 0.8rem; font-weight: 700; color: #fff; margin-bottom: 0.2rem; }
+        .endow-option .e-desc { font-size: 0.78rem; color: rgba(255,255,255,0.52); line-height: 1.55; }
+
+        /* ── JOIN THE BOARD ─── */
+        .board-section { padding: 5rem 2rem; background: var(--cream-alt); }
+        .board-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; margin-top: 2.5rem; }
+        .board-text p { font-size: 0.97rem; line-height: 1.85; color: #3a3a3a; margin-bottom: 1.1rem; }
+        .board-qualifications { background: #fff; padding: 1.5rem; border-left: 4px solid var(--coral); margin: 1.5rem 0; }
+        .board-qualifications h4 { font-family: var(--serif); font-size: 0.95rem; color: var(--teal); margin-bottom: 0.75rem; }
+        .board-qualifications ul { list-style: none; }
+        .board-qualifications li { font-size: 0.84rem; color: #555; padding: 0.3rem 0; border-bottom: 1px solid #eee; display: flex; gap: 0.5rem; }
+        .board-qualifications li::before { content: '→'; color: var(--coral); flex-shrink: 0; }
+        .board-contact-box { background: var(--teal); padding: 2.5rem; }
+        .board-contact-box h3 { font-family: var(--serif); color: #fff; font-size: 1.15rem; margin-bottom: 0.5rem; }
+        .board-contact-box p { font-size: 0.86rem; color: rgba(255,255,255,0.6); line-height: 1.7; margin-bottom: 1.5rem; }
+        .brd-field { display: flex; flex-direction: column; gap: 0.3rem; margin-bottom: 0.9rem; }
+        .brd-field label { font-size: 0.62rem; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.45); font-weight: 700; }
+        .brd-field input, .brd-field textarea { background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15); color: #fff; padding: 0.6rem 0.8rem; font-size: 0.86rem; font-family: var(--sans); width: 100%; border-radius: 2px; }
+        .brd-field input::placeholder, .brd-field textarea::placeholder { color: rgba(255,255,255,0.28); }
+        .brd-field textarea { resize: vertical; min-height: 80px; }
+    </style>
+</head>
+<body>
+
+<nav>
+    <a href="index.html" class="nav-logo">
+        <img src="images/logo.png" alt="Temple Railroad & Heritage Museum">
+        <div class="nav-logo-text">
+            <span class="name">Temple Railroad</span>
+            <span class="sub">& Heritage Museum</span>
+        </div>
+    </a>
+    <ul class="nav-links">
+        <li class="has-dropdown"><a href="visit.html">Visit</a>
+            <ul class="dropdown-menu">
+                <li><a href="visit.html">Plan Your Visit</a></li>
+                <li><a href="visit.html#tour">3D Virtual Tour</a></li>
+                <li><a href="group-tours.html">Group Tours</a></li>
+            </ul>
+        </li>
+        <li class="has-dropdown"><a href="exhibits.html">Exhibits</a>
+            <ul class="dropdown-menu">
+                <li><a href="exhibits.html">Current Exhibits</a></li>
+                <li><a href="exhibits.html#upcoming">Upcoming</a></li>
+                <li><a href="exhibits.html#permanent">Permanent Collection</a></li>
+            </ul>
+        </li>
+        <li><a href="about.html">Our Story</a></li>
+        <li><a href="events.html">Events & Programs</a></li>
+        <li class="has-dropdown"><a href="membership.html">Get Involved</a>
+            <ul class="dropdown-menu">
+                <li><a href="membership.html">Become a Member</a></li>
+                <li><a href="foundation.html">Foundation Board</a></li>
+                <li><a href="index.html#donate">Donate</a></li>
+                <li><a href="events.html#volunteer">Volunteer</a></li>
+                <li><a href="index.html#newsletter">Newsletter</a></li>
+            </ul>
+        </li>
+        <li><a href="rentals.html">Rent Our Space</a></li>
+    </ul>
+    <a href="visit.html" class="btn btn-coral">Buy Tickets</a>
+</nav>
+
+<div class="breadcrumb">
+    <div class="section-inner">
+        <a href="index.html">Home</a><span>›</span><a href="membership.html">Get Involved</a><span>›</span><span>Foundation Board</span>
+    </div>
+</div>
+
+<!-- HERO -->
+<section class="foundation-hero">
+    <div class="section-inner">
+        <div class="foundation-hero-text">
+            <p class="section-label">Established 2012</p>
+            <h1>Railroad & Heritage Museum<br>Foundation Board</h1>
+            <p class="lead">The Foundation Board is the museum's private partner — raising funds for projects that go beyond the museum's operating budget and stewarding the Fred Springer Endowment for the long-term benefit of the community.</p>
+        </div>
+        <div class="foundation-hero-badge">
+            <h3>Our Role</h3>
+            <p>The City of Temple operates the museum day to day. The Foundation Board exists alongside that to fund the extraordinary — the capital projects, the special initiatives, and the enduring endowment that make the museum's biggest moments possible.</p>
+            <p>We grew out of the museum's original advisory board and are actively expanding our reach, our membership, and our impact.</p>
+            <div class="badge-stat">
+                <div class="badge-stat-item">
+                    <div class="number">2012</div>
+                    <div class="label">Foundation Established</div>
+                </div>
+                <div class="badge-stat-item">
+                    <div class="number">Est. 1881</div>
+                    <div class="label">History We Preserve</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ABOUT -->
+<section class="foundation-about">
+    <div class="section-inner">
+        <p class="section-label">Who We Are</p>
+        <h2 class="section-heading">About the Foundation</h2>
+        <div class="about-grid">
+            <div class="about-body">
+                <p>The Railroad and Heritage Museum Foundation Board grew out of the original advisory board for the Museum when the City of Temple assumed full operational management in 2012. From the beginning, our mission has been clear: to administer the Fred Springer Endowment and to raise private funds for projects that are outside the scope of the museum's operating budget.</p>
+                <p>The museum does extraordinary work every day — maintaining exhibits, welcoming visitors, stewarding one of the most significant Santa Fe Railway archives in the country. The Foundation exists to make the extraordinary possible: the capital improvements, the landmark exhibitions, and the investments in the historic depot that no annual budget can carry alone.</p>
+                <p>We are actively growing. We are seeking new board members, expanding our Supporting Member program, and building the institutional foundation that this museum's next century deserves. If you believe in this history and want to do more than buy a ticket — this is where that begins.</p>
+            </div>
+            <div class="about-sidebar">
+                <h4>Foundation at a Glance</h4>
+                <div class="sidebar-item">
+                    <div class="s-label">Type</div>
+                    <div class="s-val">Nonprofit Foundation Board</div>
+                </div>
+                <div class="sidebar-item">
+                    <div class="s-label">Established</div>
+                    <div class="s-val">2012, grew from the museum's original advisory board</div>
+                </div>
+                <div class="sidebar-item">
+                    <div class="s-label">Primary Mission</div>
+                    <div class="s-val">Administer the Fred Springer Endowment; fundraise for projects beyond the museum's operating budget</div>
+                </div>
+                <div class="sidebar-item">
+                    <div class="s-label">Relationship to Museum</div>
+                    <div class="s-val">Independent Foundation Board; museum is operated by the City of Temple</div>
+                </div>
+                <div class="sidebar-item">
+                    <div class="s-label">Status</div>
+                    <div class="s-val">Actively seeking new board members and Supporting Members</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- WHAT WE FUND -->
+<section class="what-we-fund">
+    <div class="section-inner">
+        <p class="section-label">Where Your Support Goes</p>
+        <h2 class="section-heading">What the Foundation Funds</h2>
+        <div class="fund-grid">
+            <div class="fund-card">
+                <div class="f-num">01</div>
+                <h3>Capital Projects</h3>
+                <p>Major improvements to the historic 1911 Santa Fe Depot and museum facilities — structural preservation, accessibility upgrades, exhibit gallery renovations — that fall outside the museum's annual city budget.</p>
+            </div>
+            <div class="fund-card">
+                <div class="f-num">02</div>
+                <h3>Special Exhibitions</h3>
+                <p>Landmark rotating exhibits, traveling collections, and signature programming that require investment beyond what the museum's operating funds can support. The exhibitions that make people drive from three counties away.</p>
+            </div>
+            <div class="fund-card">
+                <div class="f-num">03</div>
+                <h3>The Fred Springer Endowment</h3>
+                <p>The Foundation's core permanent fund, generating ongoing income to support the museum in perpetuity. Gifts to the Endowment grow over time and provide a stable, lasting foundation for the museum's future.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- THREE WAYS TO SUPPORT -->
+<section class="support-paths" id="support">
+    <div class="section-inner">
+        <div class="paths-intro">
+            <p class="section-label on-dark">Ways to Give</p>
+            <h2 class="section-heading light">Three Ways to Support</h2>
+            <p>The museum and the Foundation offer distinct ways to connect your support to what matters most to you. Here's how they differ — and how they work together.</p>
+        </div>
+        <div class="paths-grid">
+            <div class="path-card">
+                <span class="path-badge badge-teal">Museum</span>
+                <h3>Museum Membership</h3>
+                <p class="path-who">For visitors, families, and history lovers</p>
+                <p>Annual membership to the museum itself — free admission, members-only events, gift shop discounts, and NARM reciprocal access at hundreds of museums. Managed by the museum's City of Temple operating team.</p>
+                <ul class="path-perks">
+                    <li>Free admission all year (1–7 people)</li>
+                    <li>First Fridays members-only evenings</li>
+                    <li>15–20% gift shop discount</li>
+                    <li>NARM reciprocal access (Family & above)</li>
+                    <li>Starting at $40/year</li>
+                </ul>
+                <a href="membership.html" class="btn btn-outline-white">View Membership Tiers</a>
+            </div>
+            <div class="path-card highlight">
+                <span class="path-badge">Foundation</span>
+                <h3>Foundation Supporting Member</h3>
+                <p class="path-who">For community leaders and deeper supporters</p>
+                <p>A relationship with the Foundation Board itself — backing the private fundraising work that funds what the museum's operating budget cannot. Supporting Members are the Foundation's most visible community partners.</p>
+                <ul class="path-perks">
+                    <li>Annual Foundation newsletter &amp; impact report</li>
+                    <li>Recognition in Foundation communications</li>
+                    <li>Invitation to Foundation events and receptions</li>
+                    <li>Direct relationship with the Foundation Board</li>
+                    <li>Supporting the Springer Endowment and capital work</li>
+                </ul>
+                <a href="#supporting-member-form" class="btn btn-coral">Become a Supporting Member</a>
+            </div>
+            <div class="path-card">
+                <span class="path-badge badge-teal">Legacy</span>
+                <h3>Endowment &amp; Project Gifts</h3>
+                <p class="path-who">For philanthropists and legacy donors</p>
+                <p>One-time or recurring gifts directed to the Fred Springer Endowment or a specific Foundation project. These gifts grow over time and create lasting impact that outlasts any single exhibit or event.</p>
+                <ul class="path-perks">
+                    <li>Gifts to the Fred Springer Endowment</li>
+                    <li>Named gifts for specific projects</li>
+                    <li>Legacy and estate gift planning</li>
+                    <li>Foundation recognition for significant gifts</li>
+                    <li>Contact Foundation to discuss</li>
+                </ul>
+                <a href="#endowment" class="btn btn-outline-white">Learn About the Endowment</a>
+            </div>
+        </div>
+        <div class="clarifier">
+            <p><strong>Museum membership and Foundation membership are separate.</strong> A museum member supports the museum's day-to-day operations through the City of Temple. A Foundation Supporting Member backs the Foundation Board's private fundraising mission. Many of our most committed supporters do both — museum membership is for the experience; Foundation membership is for the future.</p>
+        </div>
+    </div>
+</section>
+
+<!-- SUPPORTING MEMBER FORM -->
+<section class="supporting-form" id="supporting-member-form">
+    <div class="section-inner">
+        <p class="section-label">Foundation Membership</p>
+        <h2 class="section-heading">Become a Supporting Member</h2>
+        <div class="form-grid">
+            <div class="form-side">
+                <p>Supporting Members are the backbone of the Foundation's private fundraising. Your annual commitment connects you directly to the Foundation Board and to the work of making this museum's future as remarkable as its past.</p>
+                <p>Choose a support level below. The Foundation will follow up to complete your membership and welcome you into the community of supporters shaping the museum's next chapter.</p>
+                <div class="tier-select-group">
+                    <label class="tier-option">
+                        <input type="radio" name="tier" value="friend">
+                        <div class="t-name">Friend</div>
+                        <div class="t-amount">$100</div>
+                        <div class="t-desc">per year</div>
+                    </label>
+                    <label class="tier-option">
+                        <input type="radio" name="tier" value="patron">
+                        <div class="t-name">Patron</div>
+                        <div class="t-amount">$500</div>
+                        <div class="t-desc">per year</div>
+                    </label>
+                    <label class="tier-option">
+                        <input type="radio" name="tier" value="benefactor">
+                        <div class="t-name">Benefactor</div>
+                        <div class="t-amount">$1,000</div>
+                        <div class="t-desc">per year</div>
+                    </label>
+                </div>
+                <p style="font-size:0.82rem;color:#888;line-height:1.65;">All levels include the Foundation newsletter, recognition in Foundation communications, and an invitation to Foundation events. Patron and Benefactor members are recognized by name in the Foundation's annual report. Benefactor members receive a personal briefing from the Foundation Board on active projects.</p>
+            </div>
+            <div class="foundation-form-box">
+                <h3>Express Your Interest</h3>
+                <p class="form-sub">Complete this form and the Foundation will be in touch to finalize your membership.</p>
+                <div class="fnd-form-row">
+                    <div class="fnd-field"><label>First Name</label><input type="text" placeholder="First name"></div>
+                    <div class="fnd-field"><label>Last Name</label><input type="text" placeholder="Last name"></div>
+                </div>
+                <div class="fnd-field"><label>Email Address</label><input type="email" placeholder="your@email.com"></div>
+                <div class="fnd-field"><label>Phone (optional)</label><input type="tel" placeholder="Phone number"></div>
+                <div class="fnd-field">
+                    <label>Membership Level</label>
+                    <select>
+                        <option value="">Select a level…</option>
+                        <option value="friend">Friend — $100/year</option>
+                        <option value="patron">Patron — $500/year</option>
+                        <option value="benefactor">Benefactor — $1,000/year</option>
+                        <option value="custom">Other amount — I'd like to discuss</option>
+                    </select>
+                </div>
+                <div class="fnd-field"><label>Message (optional)</label><textarea placeholder="Questions, interest in a specific project, or anything else you'd like us to know…"></textarea></div>
+                <button class="btn btn-coral" style="width:100%;">Submit Interest Form</button>
+                <p style="font-size:0.72rem;color:rgba(255,255,255,0.35);margin-top:1rem;line-height:1.6;">The Foundation will contact you within a few business days to complete your membership. No payment is collected through this form.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FRED SPRINGER ENDOWMENT -->
+<section class="endowment-section" id="endowment">
+    <div class="section-inner">
+        <p class="section-label on-dark">Legacy Giving</p>
+        <h2 class="section-heading light">The Fred Springer Endowment</h2>
+        <div class="endowment-grid">
+            <div class="endowment-text">
+                <p>The Fred Springer Endowment is the Foundation's permanent fund — the financial backbone that supports the museum in perpetuity. Unlike annual operating funds, the Endowment is invested over time, generating ongoing income that benefits the museum year after year, regardless of economic conditions or budget cycles.</p>
+                <p>The Endowment is named for Fred M. Springer, whose archives have contributed irreplaceable photographs and documents to the museum's collection — including the earliest known photographs of the 1911 Santa Fe Passenger Station. A gift to the Endowment honors that legacy and extends it forward.</p>
+                <p>The Foundation administers the Endowment directly. To discuss a gift — whether a one-time contribution, a recurring commitment, or a planned legacy gift — contact the Foundation Board.</p>
+                <a href="mailto:rrhm@templetx.gov" class="btn btn-outline-white" style="margin-top:0.5rem;">Contact the Foundation</a>
+            </div>
+            <div class="endowment-box">
+                <h4>Ways to Give to the Endowment</h4>
+                <div class="endow-option">
+                    <div class="e-title">One-Time Gift</div>
+                    <div class="e-desc">A direct contribution of any amount to the Endowment fund. Every gift grows the principal and increases the museum's long-term income.</div>
+                </div>
+                <div class="endow-option">
+                    <div class="e-title">Annual Pledge</div>
+                    <div class="e-desc">A recurring annual gift that builds the Endowment over time. Ideal for supporters who want a sustained relationship with the Foundation's mission.</div>
+                </div>
+                <div class="endow-option">
+                    <div class="e-title">Named Gift</div>
+                    <div class="e-desc">Significant gifts to the Endowment can be designated in honor of an individual or family. Contact the Foundation to discuss naming opportunities.</div>
+                </div>
+                <div class="endow-option">
+                    <div class="e-title">Planned &amp; Legacy Gift</div>
+                    <div class="e-desc">Include the Endowment in your estate planning through a bequest, trust, or other legacy vehicle. The Foundation welcomes these conversations.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- JOIN THE BOARD -->
+<section class="board-section" id="join-the-board">
+    <div class="section-inner">
+        <p class="section-label">Board Recruitment</p>
+        <h2 class="section-heading">Join the Foundation Board</h2>
+        <div class="board-grid">
+            <div class="board-text">
+                <p>The Foundation Board is actively seeking new members. We are a small, committed group with big ambitions for what this museum can become — and we need community leaders, professionals, and history advocates to help us get there.</p>
+                <p>Board service is a meaningful commitment to Temple's cultural future. Members help shape the Foundation's fundraising strategy, guide endowment stewardship, and bring the community connections that make private support possible.</p>
+                <div class="board-qualifications">
+                    <h4>We're looking for people who bring:</h4>
+                    <ul>
+                        <li>Passion for Temple's history and the museum's mission</li>
+                        <li>Professional experience in finance, law, marketing, education, or philanthropy</li>
+                        <li>Community ties and a network of potential supporters</li>
+                        <li>Capacity for active, engaged board participation</li>
+                        <li>Commitment to the Foundation's long-term growth</li>
+                    </ul>
+                </div>
+                <p style="font-size:0.88rem;color:#666;">Board membership does not require prior nonprofit experience — it requires genuine commitment. If you've ever thought this museum deserves more, this is how you do something about it.</p>
+            </div>
+            <div class="board-contact-box">
+                <h3>Express Your Interest</h3>
+                <p>Tell us a little about yourself and why you'd like to join the board. The Foundation will be in touch to schedule a conversation.</p>
+                <div class="brd-field"><label>Name</label><input type="text" placeholder="Your full name"></div>
+                <div class="brd-field"><label>Email</label><input type="email" placeholder="your@email.com"></div>
+                <div class="brd-field"><label>Professional Background</label><input type="text" placeholder="e.g. attorney, educator, banker, business owner"></div>
+                <div class="brd-field"><label>Why You're Interested</label><textarea placeholder="Tell us about your connection to this museum and what you'd bring to the board…"></textarea></div>
+                <button class="btn btn-coral" style="width:100%;">Submit Board Interest</button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <div class="footer-grid">
+        <div class="footer-brand">
+            <img src="images/logo.png" alt="Temple Railroad & Heritage Museum">
+            <p>Housed in the historic 1911 Santa Fe Depot, the museum preserves the railroad heritage and community history of Temple, Texas and all of Central Texas.</p>
+        </div>
+        <div class="footer-col">
+            <h4>Visit</h4>
+            <ul>
+                <li>315 W Ave B</li><li>Temple, TX 76501</li>
+                <li>254-298-5172</li>
+                <li><a href="mailto:rrhm@templetx.gov">rrhm@templetx.gov</a></li>
+                <li style="margin-top:0.5rem;">Tue – Sat: 10 AM – 4 PM</li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4>Explore</h4>
+            <ul>
+                <li><a href="exhibits.html">Current Exhibits</a></li>
+                <li><a href="visit.html">Plan Your Visit</a></li>
+                <li><a href="visit.html#tour">3D Virtual Tour</a></li>
+                <li><a href="events.html">Events Calendar</a></li>
+                <li><a href="group-tours.html">School Groups</a></li>
+                <li><a href="about.html">Our Story</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4>Get Involved</h4>
+            <ul>
+                <li><a href="membership.html">Membership</a></li>
+                <li><a href="foundation.html">Foundation Board</a></li>
+                <li><a href="index.html#donate">Donate</a></li>
+                <li><a href="events.html#volunteer">Volunteer</a></li>
+                <li><a href="rentals.html">Rent Our Space</a></li>
+                <li><a href="index.html#newsletter">Newsletter</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <span>© 2026 Temple Railroad & Heritage Museum. All rights reserved.</span>
+        <span>Temple, Texas &nbsp;·&nbsp; Est. 1881</span>
+    </div>
+</footer>
+
+<script>
+    document.querySelectorAll('.tier-option').forEach(opt => {
+        opt.addEventListener('click', () => {
+            document.querySelectorAll('.tier-option').forEach(o => o.classList.remove('selected'));
+            opt.classList.add('selected');
+            const select = document.querySelector('.fnd-field select');
+            const val = opt.querySelector('input[type="radio"]').value;
+            const map = { friend: 'friend', patron: 'patron', benefactor: 'benefactor' };
+            if (select && map[val]) select.value = map[val];
+        });
+    });
+</script>
+
+</body>
+</html>
